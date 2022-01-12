@@ -309,6 +309,240 @@ function Create() {
 	
 	
 	
+	// ====
+	// FDDO
+	// ====
+	var [fddoTotalSamplesQ1, setfddoTotalSamplesQ1] = useState("")
+	var [fddoTotalSamplesQ2, setfddoTotalSamplesQ2] = useState("")
+	var [fddoTotalSamplesQ3, setfddoTotalSamplesQ3] = useState("")
+	var [fddoTotalSamplesQ4, setfddoTotalSamplesQ4] = useState("")
+	function handlefddoTotalSamplesQ1(e){
+		setfddoTotalSamplesQ1(e.target.value)
+	}
+	function handlefddoTotalSamplesQ2(e){
+		setfddoTotalSamplesQ2(e.target.value)
+	}
+	function handlefddoTotalSamplesQ3(e){
+		setfddoTotalSamplesQ3(e.target.value)
+	}
+	function handlefddoTotalSamplesQ4(e){
+		setfddoTotalSamplesQ4(e.target.value)
+	}
+	var fddoTotalSamples = Number(fddoTotalSamplesQ1) + Number(fddoTotalSamplesQ2) + Number(fddoTotalSamplesQ3) + Number(fddoTotalSamplesQ4)
+	
+	
+	var [fddoLateFirstQ1, setfddoLateFirstQ1] = useState("")
+	var [fddoLateFirstQ2, setfddoLateFirstQ2] = useState("")
+	var [fddoLateFirstQ3, setfddoLateFirstQ3] = useState("")
+	var [fddoLateFirstQ4, setfddoLateFirstQ4] = useState("")
+	function handlefddoLateFirstQ1(e){
+		setfddoLateFirstQ1(e.target.value)
+	}
+	function handlefddoLateFirstQ2(e){
+		setfddoLateFirstQ2(e.target.value)
+	}
+	function handlefddoLateFirstQ3(e){
+		setfddoLateFirstQ3(e.target.value)
+	}
+	function handlefddoLateFirstQ4(e){
+		setfddoLateFirstQ4(e.target.value)
+	}
+	var fddoLateFirst = (1 - (Number(fddoLateFirstQ1) + Number(fddoLateFirstQ2) + Number(fddoLateFirstQ3) + Number(fddoLateFirstQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoLateFinalQ1, setfddoLateFinalQ1] = useState("")
+	var [fddoLateFinalQ2, setfddoLateFinalQ2] = useState("")
+	var [fddoLateFinalQ3, setfddoLateFinalQ3] = useState("")
+	var [fddoLateFinalQ4, setfddoLateFinalQ4] = useState("")
+	function handlefddoLateFinalQ1(e){
+		setfddoLateFinalQ1(e.target.value)
+	}
+	function handlefddoLateFinalQ2(e){
+		setfddoLateFinalQ2(e.target.value)
+	}
+	function handlefddoLateFinalQ3(e){
+		setfddoLateFinalQ3(e.target.value)
+	}
+	function handlefddoLateFinalQ4(e){
+		setfddoLateFinalQ4(e.target.value)
+	}
+	var fddoLateFinal = (1 - (Number(fddoLateFinalQ1) + Number(fddoLateFinalQ2) + Number(fddoLateFinalQ3) + Number(fddoLateFinalQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoImproperQ1, setfddoImproperQ1] = useState("")
+	var [fddoImproperQ2, setfddoImproperQ2] = useState("")
+	var [fddoImproperQ3, setfddoImproperQ3] = useState("")
+	var [fddoImproperQ4, setfddoImproperQ4] = useState("")
+	function handlefddoImproperQ1(e){
+		setfddoImproperQ1(e.target.value)
+	}
+	function handlefddoImproperQ2(e){
+		setfddoImproperQ2(e.target.value)
+	}
+	function handlefddoImproperQ3(e){
+		setfddoImproperQ3(e.target.value)
+	}
+	function handlefddoImproperQ4(e){
+		setfddoImproperQ4(e.target.value)
+	}
+	var fddoImproper = (1 - (Number(fddoImproperQ1) + Number(fddoImproperQ2) + Number(fddoImproperQ3) + Number(fddoImproperQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoExtremeQ1, setfddoExtremeQ1] = useState("")
+	var [fddoExtremeQ2, setfddoExtremeQ2] = useState("")
+	var [fddoExtremeQ3, setfddoExtremeQ3] = useState("")
+	var [fddoExtremeQ4, setfddoExtremeQ4] = useState("")
+	function handlefddoExtremeQ1(e){
+		setfddoExtremeQ1(e.target.value)
+	}
+	function handlefddoExtremeQ2(e){
+		setfddoExtremeQ2(e.target.value)
+	}
+	function handlefddoExtremeQ3(e){
+		setfddoExtremeQ3(e.target.value)
+	}
+	function handlefddoExtremeQ4(e){
+		setfddoExtremeQ4(e.target.value)
+	}
+	var fddoExtreme = (1 - (Number(fddoExtremeQ1) + Number(fddoExtremeQ2) + Number(fddoExtremeQ3) + Number(fddoExtremeQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoFusedQ1, setfddoFusedQ1] = useState("")
+	var [fddoFusedQ2, setfddoFusedQ2] = useState("")
+	var [fddoFusedQ3, setfddoFusedQ3] = useState("")
+	var [fddoFusedQ4, setfddoFusedQ4] = useState("")
+	function handlefddoFusedQ1(e){
+		setfddoFusedQ1(e.target.value)
+	}
+	function handlefddoFusedQ2(e){
+		setfddoFusedQ2(e.target.value)
+	}
+	function handlefddoFusedQ3(e){
+		setfddoFusedQ3(e.target.value)
+	}
+	function handlefddoFusedQ4(e){
+		setfddoFusedQ4(e.target.value)
+	}
+	var fddoFused = (1 - (Number(fddoFusedQ1) + Number(fddoFusedQ2) + Number(fddoFusedQ3) + Number(fddoFusedQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoSingleQ1, setfddoSingleQ1] = useState("")
+	var [fddoSingleQ2, setfddoSingleQ2] = useState("")
+	var [fddoSingleQ3, setfddoSingleQ3] = useState("")
+	var [fddoSingleQ4, setfddoSingleQ4] = useState("")
+	function handlefddoSingleQ1(e){
+		setfddoSingleQ1(e.target.value)
+	}
+	function handlefddoSingleQ2(e){
+		setfddoSingleQ2(e.target.value)
+	}
+	function handlefddoSingleQ3(e){
+		setfddoSingleQ3(e.target.value)
+	}
+	function handlefddoSingleQ4(e){
+		setfddoSingleQ4(e.target.value)
+	}
+	var fddoSingle = (1 - (Number(fddoSingleQ1) + Number(fddoSingleQ2) + Number(fddoSingleQ3) + Number(fddoSingleQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoExcessQ1, setfddoExcessQ1] = useState("")
+	var [fddoExcessQ2, setfddoExcessQ2] = useState("")
+	var [fddoExcessQ3, setfddoExcessQ3] = useState("")
+	var [fddoExcessQ4, setfddoExcessQ4] = useState("")
+	function handlefddoExcessQ1(e){
+		setfddoExcessQ1(e.target.value)
+	}
+	function handlefddoExcessQ2(e){
+		setfddoExcessQ2(e.target.value)
+	}
+	function handlefddoExcessQ3(e){
+		setfddoExcessQ3(e.target.value)
+	}
+	function handlefddoExcessQ4(e){
+		setfddoExcessQ4(e.target.value)
+	}
+	var fddoExcess = (1 - (Number(fddoExcessQ1) + Number(fddoExcessQ2) + Number(fddoExcessQ3) + Number(fddoExcessQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoMissoutQ1, setfddoMissoutQ1] = useState("")
+	var [fddoMissoutQ2, setfddoMissoutQ2] = useState("")
+	var [fddoMissoutQ3, setfddoMissoutQ3] = useState("")
+	var [fddoMissoutQ4, setfddoMissoutQ4] = useState("")
+	function handlefddoMissoutQ1(e){
+		setfddoMissoutQ1(e.target.value)
+	}
+	function handlefddoMissoutQ2(e){
+		setfddoMissoutQ2(e.target.value)
+	}
+	function handlefddoMissoutQ3(e){
+		setfddoMissoutQ3(e.target.value)
+	}
+	function handlefddoMissoutQ4(e){
+		setfddoMissoutQ4(e.target.value)
+	}
+	var fddoMissout = (1 - (Number(fddoMissoutQ1) + Number(fddoMissoutQ2) + Number(fddoMissoutQ3) + Number(fddoMissoutQ4)) / fddoTotalSamples) * 5
+	
+	
+	var [fddoLate3to5Q1, setfddoLate3to5Q1] = useState("")
+	var [fddoLate3to5Q2, setfddoLate3to5Q2] = useState("")
+	var [fddoLate3to5Q3, setfddoLate3to5Q3] = useState("")
+	var [fddoLate3to5Q4, setfddoLate3to5Q4] = useState("")
+	function handlefddoLate3to5Q1(e){
+		setfddoLate3to5Q1(e.target.value)
+	}
+	function handlefddoLate3to5Q2(e){
+		setfddoLate3to5Q2(e.target.value)
+	}
+	function handlefddoLate3to5Q3(e){
+		setfddoLate3to5Q3(e.target.value)
+	}
+	function handlefddoLate3to5Q4(e){
+		setfddoLate3to5Q4(e.target.value)
+	}
+	var fddoLate3to5 = (1 - (Number(fddoLate3to5Q1) + Number(fddoLate3to5Q2) + Number(fddoLate3to5Q3) + Number(fddoLate3to5Q4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoNonFollowingQ1, setfddoNonFollowingQ1] = useState("")
+	var [fddoNonFollowingQ2, setfddoNonFollowingQ2] = useState("")
+	var [fddoNonFollowingQ3, setfddoNonFollowingQ3] = useState("")
+	var [fddoNonFollowingQ4, setfddoNonFollowingQ4] = useState("")
+	function handlefddoNonFollowingQ1(e){
+		setfddoNonFollowingQ1(e.target.value)
+	}
+	function handlefddoNonFollowingQ2(e){
+		setfddoNonFollowingQ2(e.target.value)
+	}
+	function handlefddoNonFollowingQ3(e){
+		setfddoNonFollowingQ3(e.target.value)
+	}
+	function handlefddoNonFollowingQ4(e){
+		setfddoNonFollowingQ4(e.target.value)
+	}
+	var fddoNonFollowing = (1 - (Number(fddoNonFollowingQ1) + Number(fddoNonFollowingQ2) + Number(fddoNonFollowingQ3) + Number(fddoNonFollowingQ4)) / fddoTotalSamples) * 10
+	
+	
+	var [fddoNoMarkQ1, setfddoNoMarkQ1] = useState("")
+	var [fddoNoMarkQ2, setfddoNoMarkQ2] = useState("")
+	var [fddoNoMarkQ3, setfddoNoMarkQ3] = useState("")
+	var [fddoNoMarkQ4, setfddoNoMarkQ4] = useState("")
+	function handlefddoNoMarkQ1(e){
+		setfddoNoMarkQ1(e.target.value)
+	}
+	function handlefddoNoMarkQ2(e){
+		setfddoNoMarkQ2(e.target.value)
+	}
+	function handlefddoNoMarkQ3(e){
+		setfddoNoMarkQ3(e.target.value)
+	}
+	function handlefddoNoMarkQ4(e){
+		setfddoNoMarkQ4(e.target.value)
+	}
+	var fddoNoMark = (1 - (Number(fddoNoMarkQ1) + Number(fddoNoMarkQ2) + Number(fddoNoMarkQ3) + Number(fddoNoMarkQ4)) / fddoTotalSamples) * 5      
+	// =========
+	// END, FDDO
+	// =========
+	
+	
   return (
     <div>
 		  
@@ -636,12 +870,215 @@ function Create() {
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
 		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(bsMissout + bsBunch + bsUndercycle + bsNoMark)}%</h6></Col>
 	   </Row>	    
-    {/* ===================== */}
+    {/* ================ */}
 	{/* END, BUNCH SPRAY */}
-	{/* ===================== */}
+	{/* ================ */}
 	<br />
 	<br />
-	<br />	  
+	<br />
+	  
+	
+	{/* ==== */}
+	{/* FDDO */}
+	{/* === */}
+       <Row className="justify-content-center">
+         <Col xs={10}>
+			 <h4 className="m-0">FDDO</h4>
+			 {/* Late (1st pass- 3 to 5 hands open) */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Late (1st pass- 3 to 5 hands open)</Accordion.Header>
+                <Accordion.Body>
+					  <Row className="justify-content-center">
+                        <Col><Form.Control type="number" value={fddoLateFirstQ1} onChange={handlefddoLateFirstQ1} required placeholder="Q1" /></Col>
+                        <Col><Form.Control type="number" value={fddoLateFirstQ2} onChange={handlefddoLateFirstQ2} required placeholder="Q2" /></Col>
+						<Col><Form.Control type="number" value={fddoLateFirstQ3} onChange={handlefddoLateFirstQ3} required placeholder="Q3" /></Col>
+						<Col><Form.Control type="number" value={fddoLateFirstQ4} onChange={handlefddoLateFirstQ4} required placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Late (final pass- 6 all hands open) */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Late (final pass- 6 all hands open)</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoLateFinalQ1} onChange={handlefddoLateFinalQ1} type="number" placeholder="Q1" required /></Col>
+                        <Col> <Form.Control value={fddoLateFinalQ2} onChange={handlefddoLateFinalQ2} type="number" placeholder="Q2" required /></Col>
+						<Col> <Form.Control value={fddoLateFinalQ3} onChange={handlefddoLateFinalQ3} type="number" placeholder="Q3" required /></Col>
+						<Col> <Form.Control value={fddoLateFinalQ4} onChange={handlefddoLateFinalQ4} type="number" placeholder="Q4" required /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Improper */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Improper</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoImproperQ1} onChange={handlefddoImproperQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoImproperQ2} onChange={handlefddoImproperQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoImproperQ3} onChange={handlefddoImproperQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoImproperQ4} onChange={handlefddoImproperQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Extreme right */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Extreme right</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoExtremeQ1} onChange={handlefddoExtremeQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoExtremeQ2} onChange={handlefddoExtremeQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoExtremeQ3} onChange={handlefddoExtremeQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoExtremeQ4} onChange={handlefddoExtremeQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 
+			 {/* Fused  Finger */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Fused  Finger</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoFusedQ1} onChange={handlefddoFusedQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoFusedQ2} onChange={handlefddoFusedQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoFusedQ3} onChange={handlefddoFusedQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoFusedQ4} onChange={handlefddoFusedQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Single/ 3 layers */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Single/ 3 layers</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoSingleQ1} onChange={handlefddoSingleQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoSingleQ2} onChange={handlefddoSingleQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoSingleQ3} onChange={handlefddoSingleQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoSingleQ4} onChange={handlefddoSingleQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* Excess Finger/ mokillo */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Excess Finger/ mokillo</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoExcessQ1} onChange={handlefddoExcessQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoExcessQ2} onChange={handlefddoExcessQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoExcessQ3} onChange={handlefddoExcessQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoExcessQ4} onChange={handlefddoExcessQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* Missout (3 to 5 nodes) */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Missout (3 to 5 nodes)</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoMissoutQ1} onChange={handlefddoMissoutQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoMissoutQ2} onChange={handlefddoMissoutQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoMissoutQ3} onChange={handlefddoMissoutQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoMissoutQ4} onChange={handlefddoMissoutQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* Late (3 to 5 nodes) */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Late (3 to 5 nodes)</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoLate3to5Q1} onChange={handlefddoLate3to5Q1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoLate3to5Q2} onChange={handlefddoLate3to5Q2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoLate3to5Q3} onChange={handlefddoLate3to5Q3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoLate3to5Q4} onChange={handlefddoLate3to5Q4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* Non following of hand prunning schedule */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Non following of hand prunning schedule</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoNonFollowingQ1} onChange={handlefddoNonFollowingQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoNonFollowingQ2} onChange={handlefddoNonFollowingQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoNonFollowingQ3} onChange={handlefddoNonFollowingQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoNonFollowingQ4} onChange={handlefddoNonFollowingQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* No Marking */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>No Marking</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoNoMarkQ1} onChange={handlefddoNoMarkQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoNoMarkQ2} onChange={handlefddoNoMarkQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoNoMarkQ3} onChange={handlefddoNoMarkQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoNoMarkQ4} onChange={handlefddoNoMarkQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Total No. of Samples */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Total No. of Samples</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={fddoTotalSamplesQ1} onChange={handlefddoTotalSamplesQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={fddoTotalSamplesQ2} onChange={handlefddoTotalSamplesQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={fddoTotalSamplesQ3} onChange={handlefddoTotalSamplesQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={fddoTotalSamplesQ4} onChange={handlefddoTotalSamplesQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+		 </Col>
+       </Row>	   
+
+	   {/* another row for displaying score */}
+	   <Row className="justify-content-center ps-3 pe-3">
+		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(fddoLateFirst + fddoLateFinal + fddoImproper + fddoExtreme + fddoFused + fddoSingle + fddoExcess + fddoMissout + fddoLate3to5 + fddoNonFollowing + fddoNoMark)}%</h6></Col>
+	   </Row>	    
+	{/* ========= */}
+	{/* END, FDDO */}
+	{/* ========= */}
+	<br />
+	<br />
+	<br />
 
  
 	   </Form>
