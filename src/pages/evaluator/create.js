@@ -543,6 +543,184 @@ function Create() {
 	// =========
 	
 	
+	
+	// ======
+	// BAGSOK
+	// ======
+	var [bskTotalSamplesQ1, setbskTotalSamplesQ1] = useState("")
+	var [bskTotalSamplesQ2, setbskTotalSamplesQ2] = useState("")
+	var [bskTotalSamplesQ3, setbskTotalSamplesQ3] = useState("")
+	var [bskTotalSamplesQ4, setbskTotalSamplesQ4] = useState("")
+	function handlebskTotalSamplesQ1(e){
+		setbskTotalSamplesQ1(e.target.value)
+	}
+	function handlebskTotalSamplesQ2(e){
+		setbskTotalSamplesQ2(e.target.value)
+	}
+	function handlebskTotalSamplesQ3(e){
+		setbskTotalSamplesQ3(e.target.value)
+	}
+	function handlebskTotalSamplesQ4(e){
+		setbskTotalSamplesQ4(e.target.value)
+	}
+	var bskTotalSamples = Number(bskTotalSamplesQ1) + Number(bskTotalSamplesQ2) + Number(bskTotalSamplesQ3) + Number(bskTotalSamplesQ4)
+	
+	
+	var [bskLowQ1, setbskLowQ1] = useState("")
+	var [bskLowQ2, setbskLowQ2] = useState("")
+	var [bskLowQ3, setbskLowQ3] = useState("")
+	var [bskLowQ4, setbskLowQ4] = useState("")
+	function handlebskLowQ1(e){
+		setbskLowQ1(e.target.value)
+	}
+	function handlebskLowQ2(e){
+		setbskLowQ2(e.target.value)
+	}
+	function handlebskLowQ3(e){
+		setbskLowQ3(e.target.value)
+	}
+	function handlebskLowQ4(e){
+		setbskLowQ4(e.target.value)
+	}
+	var bskLow = (1 - (Number(bskLowQ1) + Number(bskLowQ2) + Number(bskLowQ3) + Number(bskLowQ4)) / bskTotalSamples) * 20      
+	
+	
+	var [bskNoPonyQ1, setbskNoPonyQ1] = useState("")
+	var [bskNoPonyQ2, setbskNoPonyQ2] = useState("")
+	var [bskNoPonyQ3, setbskNoPonyQ3] = useState("")
+	var [bskNoPonyQ4, setbskNoPonyQ4] = useState("")
+	function handlebskNoPonyQ1(e){
+		setbskNoPonyQ1(e.target.value)
+	}
+	function handlebskNoPonyQ2(e){
+		setbskNoPonyQ2(e.target.value)
+	}
+	function handlebskNoPonyQ3(e){
+		setbskNoPonyQ3(e.target.value)
+	}
+	function handlebskNoPonyQ4(e){
+		setbskNoPonyQ4(e.target.value)
+	}
+	var bskNoPony = (1 - (Number(bskNoPonyQ1) + Number(bskNoPonyQ2) + Number(bskNoPonyQ3) + Number(bskNoPonyQ4)) / bskTotalSamples) * 5      
+	
+	
+	var [bskShortQ1, setbskShortQ1] = useState("")
+	var [bskShortQ2, setbskShortQ2] = useState("")
+	var [bskShortQ3, setbskShortQ3] = useState("")
+	var [bskShortQ4, setbskShortQ4] = useState("")
+	function handlebskShortQ1(e){
+		setbskShortQ1(e.target.value)
+	}
+	function handlebskShortQ2(e){
+		setbskShortQ2(e.target.value)
+	}
+	function handlebskShortQ3(e){
+		setbskShortQ3(e.target.value)
+	}
+	function handlebskShortQ4(e){
+		setbskShortQ4(e.target.value)
+	}
+	var bskShort = (1 - (Number(bskShortQ1) + Number(bskShortQ2) + Number(bskShortQ3) + Number(bskShortQ4)) / bskTotalSamples) * 5      
+	
+	
+	var [bskLateQ1, setbskLateQ1] = useState("")
+	var [bskLateQ2, setbskLateQ2] = useState("")
+	var [bskLateQ3, setbskLateQ3] = useState("")
+	var [bskLateQ4, setbskLateQ4] = useState("")
+	function handlebskLateQ1(e){
+		setbskLateQ1(e.target.value)
+	}
+	function handlebskLateQ2(e){
+		setbskLateQ2(e.target.value)
+	}
+	function handlebskLateQ3(e){
+		setbskLateQ3(e.target.value)
+	}
+	function handlebskLateQ4(e){
+		setbskLateQ4(e.target.value)
+	}
+	var bskLate = (1 - (Number(bskLateQ1) + Number(bskLateQ2) + Number(bskLateQ3) + Number(bskLateQ4)) / bskTotalSamples) * 25      
+	
+	
+	var [bskNoPlasticQ1, setbskNoPlasticQ1] = useState("")
+	var [bskNoPlasticQ2, setbskNoPlasticQ2] = useState("")
+	var [bskNoPlasticQ3, setbskNoPlasticQ3] = useState("")
+	var [bskNoPlasticQ4, setbskNoPlasticQ4] = useState("")
+	function handlebskNoPlasticQ1(e){
+		setbskNoPlasticQ1(e.target.value)
+	}
+	function handlebskNoPlasticQ2(e){
+		setbskNoPlasticQ2(e.target.value)
+	}
+	function handlebskNoPlasticQ3(e){
+		setbskNoPlasticQ3(e.target.value)
+	}
+	function handlebskNoPlasticQ4(e){
+		setbskNoPlasticQ4(e.target.value)
+	}
+	var bskNoPlastic = (1 - (Number(bskNoPlasticQ1) + Number(bskNoPlasticQ2) + Number(bskNoPlasticQ3) + Number(bskNoPlasticQ4)) / bskTotalSamples) * 10      
+	
+	
+	var [bskImproperQ1, setbskImproperQ1] = useState("")
+	var [bskImproperQ2, setbskImproperQ2] = useState("")
+	var [bskImproperQ3, setbskImproperQ3] = useState("")
+	var [bskImproperQ4, setbskImproperQ4] = useState("")
+	function handlebskImproperQ1(e){
+		setbskImproperQ1(e.target.value)
+	}
+	function handlebskImproperQ2(e){
+		setbskImproperQ2(e.target.value)
+	}
+	function handlebskImproperQ3(e){
+		setbskImproperQ3(e.target.value)
+	}
+	function handlebskImproperQ4(e){
+		setbskImproperQ4(e.target.value)
+	}
+	var bskImproper = (1 - (Number(bskImproperQ1) + Number(bskImproperQ2) + Number(bskImproperQ3) + Number(bskImproperQ4)) / bskTotalSamples) * 5      
+	
+	
+	var [bskIncompleteQ1, setbskIncompleteQ1] = useState("")
+	var [bskIncompleteQ2, setbskIncompleteQ2] = useState("")
+	var [bskIncompleteQ3, setbskIncompleteQ3] = useState("")
+	var [bskIncompleteQ4, setbskIncompleteQ4] = useState("")
+	function handlebskIncompleteQ1(e){
+		setbskIncompleteQ1(e.target.value)
+	}
+	function handlebskIncompleteQ2(e){
+		setbskIncompleteQ2(e.target.value)
+	}
+	function handlebskIncompleteQ3(e){
+		setbskIncompleteQ3(e.target.value)
+	}
+	function handlebskIncompleteQ4(e){
+		setbskIncompleteQ4(e.target.value)
+	}
+	var bskIncomplete = (1 - (Number(bskIncompleteQ1) + Number(bskIncompleteQ2) + Number(bskIncompleteQ3) + Number(bskIncompleteQ4)) / bskTotalSamples) * 5      
+	
+	
+	var [bskNoSunburnQ1, setbskNoSunburnQ1] = useState("")
+	var [bskNoSunburnQ2, setbskNoSunburnQ2] = useState("")
+	var [bskNoSunburnQ3, setbskNoSunburnQ3] = useState("")
+	var [bskNoSunburnQ4, setbskNoSunburnQ4] = useState("")
+	function handlebskNoSunburnQ1(e){
+		setbskNoSunburnQ1(e.target.value)
+	}
+	function handlebskNoSunburnQ2(e){
+		setbskNoSunburnQ2(e.target.value)
+	}
+	function handlebskNoSunburnQ3(e){
+		setbskNoSunburnQ3(e.target.value)
+	}
+	function handlebskNoSunburnQ4(e){
+		setbskNoSunburnQ4(e.target.value)
+	}
+	var bskNoSunburn = (1 - (Number(bskNoSunburnQ1) + Number(bskNoSunburnQ2) + Number(bskNoSunburnQ3) + Number(bskNoSunburnQ4)) / bskTotalSamples) * 25      
+	// ===========
+	// END, BAGSOK
+	// ===========
+	
+	
   return (
     <div>
 		  
@@ -1079,6 +1257,165 @@ function Create() {
 	<br />
 	<br />
 	<br />
+	
+	
+	
+	{/* ====== */}
+	{/* BAGSOK */}
+	{/* ====== */}
+       <Row className="justify-content-center">
+         <Col xs={10}>
+			 <h4 className="m-0">BAGSOK</h4>
+			 {/* Low Tying */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Low Tying</Accordion.Header>
+                <Accordion.Body>
+					  <Row className="justify-content-center">
+                        <Col><Form.Control type="number" value={} onChange={} required placeholder="Q1" /></Col>
+                        <Col><Form.Control type="number" value={} onChange={} required placeholder="Q2" /></Col>
+						<Col><Form.Control type="number" value={} onChange={} required placeholder="Q3" /></Col>
+						<Col><Form.Control type="number" value={} onChange={} required placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* No Ponytail */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>No Ponytail</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" required /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" required /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" required /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" required /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Short/ Long Cutting of Polybag */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Short/ Long Cutting of Polybag</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Late Bagging/ Debelling */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Late Bagging/ Debelling</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 
+			 {/* No Plastic Insert */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>No Plastic Insert</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Improper Installation */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Improper Installation</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* Incomplete */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Incomplete</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* No Sunburn Protection (Newspaper) */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>No Sunburn Protection (Newspaper)</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+			 {/* Total No. of Samples */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Total No. of Samples</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>			 
+			 
+		 </Col>
+       </Row>	   
+
+	   {/* another row for displaying score */}
+	   <Row className="justify-content-center ps-3 pe-3">
+		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn)}%</h6></Col>
+	   </Row>
+	{/* ========= */}
+	{/* END, BAGSOK */}
+	{/* ========= */}
+	<br />
+	<br />
+	<br />
 
  
 	   </Form>
@@ -1089,3 +1426,611 @@ function Create() {
 }
 
 export default Create;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
