@@ -821,6 +821,19 @@ function Create() {
 	// ==================
 	
 	
+	// ====
+	// ...
+	// ====
+	var wholeBud = bbLateInstallation+bbMissOut+bbLateRetrieval+bbImproperInstall+bbNoMarking
+    var wholePropping = pgLate + pgMissout + pgImproper
+    var wholeBunch = bsMissout + bsBunch + bsUndercycle + bsNoMark
+    var wholeFddo = fddoLateFirst + fddoLateFinal + fddoImproper + fddoExtreme + fddoFused + fddoSingle + fddoExcess + fddoMissout + fddoLate3to5 + fddoNonFollowing + fddoNoMark
+    var wholeBagsok = bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn
+    var wholeLeaf = leafMissout + leafLate + leafOver + leafNon
+
+
+
+	
   return (
     <div>
 		  
@@ -1614,7 +1627,13 @@ function Create() {
 	{/* ================== */}
 	<br />
 	<br />
-	<br />
+	
+
+	{/* Overall Score */}
+	<Row className="justify-content-center ps-3 pe-3">
+	  <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
+	  <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
+	</Row>
 
  
 	   </Form>
