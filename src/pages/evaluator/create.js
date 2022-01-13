@@ -721,6 +721,106 @@ function Create() {
 	// ===========
 	
 	
+	// =============
+	// LEAF TRIMMING
+	// =============
+	var [leafTotalSamplesQ1, setleafTotalSamplesQ1] = useState("")
+	var [leafTotalSamplesQ2, setleafTotalSamplesQ2] = useState("")
+	var [leafTotalSamplesQ3, setleafTotalSamplesQ3] = useState("")
+	var [leafTotalSamplesQ4, setleafTotalSamplesQ4] = useState("")
+	function handleleafTotalSamplesQ1(e){
+		setleafTotalSamplesQ1(e.target.value)
+	}
+	function handleleafTotalSamplesQ2(e){
+		setleafTotalSamplesQ2(e.target.value)
+	}
+	function handleleafTotalSamplesQ3(e){
+		setleafTotalSamplesQ3(e.target.value)
+	}
+	function handleleafTotalSamplesQ4(e){
+		setleafTotalSamplesQ4(e.target.value)
+	}
+	var leafTotalSamples = Number(leafTotalSamplesQ1) + Number(leafTotalSamplesQ2) + Number(leafTotalSamplesQ3) + Number(leafTotalSamplesQ4)
+	
+	
+	var [leafMissoutQ1, setleafMissoutQ1] = useState("")
+	var [leafMissoutQ2, setleafMissoutQ2] = useState("")
+	var [leafMissoutQ3, setleafMissoutQ3] = useState("")
+	var [leafMissoutQ4, setleafMissoutQ4] = useState("")
+	function handleleafMissoutQ1(e){
+		setleafMissoutQ1(e.target.value)
+	}
+	function handleleafMissoutQ2(e){
+		setleafMissoutQ2(e.target.value)
+	}
+	function handleleafMissoutQ3(e){
+		setleafMissoutQ3(e.target.value)
+	}
+	function handleleafMissoutQ4(e){
+		setleafMissoutQ4(e.target.value)
+	}
+	var leafMissout = (1 - (Number(leafMissoutQ1) + Number(leafMissoutQ2) + Number(leafMissoutQ3) + Number(leafMissoutQ4)) / leafTotalSamples) * 25
+	
+	var [leafLateQ1, setleafLateQ1] = useState("")
+	var [leafLateQ2, setleafLateQ2] = useState("")
+	var [leafLateQ3, setleafLateQ3] = useState("")
+	var [leafLateQ4, setleafLateQ4] = useState("")
+	function handleleafLateQ1(e){
+		setleafLateQ1(e.target.value)
+	}
+	function handleleafLateQ2(e){
+		setleafLateQ2(e.target.value)
+	}
+	function handleleafLateQ3(e){
+		setleafLateQ3(e.target.value)
+	}
+	function handleleafLateQ4(e){
+		setleafLateQ4(e.target.value)
+	}
+	var leafLate = (1 - (Number(leafLateQ1) + Number(leafLateQ2) + Number(leafLateQ3) + Number(leafLateQ4)) / leafTotalSamples) * 30
+	
+	
+	var [leafOverQ1, setleafOverQ1] = useState("")
+	var [leafOverQ2, setleafOverQ2] = useState("")
+	var [leafOverQ3, setleafOverQ3] = useState("")
+	var [leafOverQ4, setleafOverQ4] = useState("")
+	function handleleafOverQ1(e){
+		setleafOverQ1(e.target.value)
+	}
+	function handleleafOverQ2(e){
+		setleafOverQ2(e.target.value)
+	}
+	function handleleafOverQ3(e){
+		setleafOverQ3(e.target.value)
+	}
+	function handleleafOverQ4(e){
+		setleafOverQ4(e.target.value)
+	}
+	var leafOver = (1 - (Number(leafOverQ1) + Number(leafOverQ2) + Number(leafOverQ3) + Number(leafOverQ4)) / leafTotalSamples) * 25
+	
+	
+	var [leafNonQ1, setleafNonQ1] = useState("")
+	var [leafNonQ2, setleafNonQ2] = useState("")
+	var [leafNonQ3, setleafNonQ3] = useState("")
+	var [leafNonQ4, setleafNonQ4] = useState("")
+	function handleleafNonQ1(e){
+		setleafNonQ1(e.target.value)
+	}
+	function handleleafNonQ2(e){
+		setleafNonQ2(e.target.value)
+	}
+	function handleleafNonQ3(e){
+		setleafNonQ3(e.target.value)
+	}
+	function handleleafNonQ4(e){
+		setleafNonQ4(e.target.value)
+	}
+	var leafNon = (1 - (Number(leafNonQ1) + Number(leafNonQ2) + Number(leafNonQ3) + Number(leafNonQ4)) / leafTotalSamples) * 20
+	// ==================
+	// END, LEAF TRIMMING
+	// ==================
+	
+	
   return (
     <div>
 		  
@@ -1272,10 +1372,10 @@ function Create() {
                 <Accordion.Header>Low Tying</Accordion.Header>
                 <Accordion.Body>
 					  <Row className="justify-content-center">
-                        <Col><Form.Control type="number" value={} onChange={} required placeholder="Q1" /></Col>
-                        <Col><Form.Control type="number" value={} onChange={} required placeholder="Q2" /></Col>
-						<Col><Form.Control type="number" value={} onChange={} required placeholder="Q3" /></Col>
-						<Col><Form.Control type="number" value={} onChange={} required placeholder="Q4" /></Col>
+                        <Col><Form.Control type="number" value={bskLowQ1} onChange={handlebskLowQ1} required placeholder="Q1" /></Col>
+                        <Col><Form.Control type="number" value={bskLowQ2} onChange={handlebskLowQ2} required placeholder="Q2" /></Col>
+						<Col><Form.Control type="number" value={bskLowQ3} onChange={handlebskLowQ3} required placeholder="Q3" /></Col>
+						<Col><Form.Control type="number" value={bskLowQ4} onChange={handlebskLowQ4} required placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1287,10 +1387,10 @@ function Create() {
                 <Accordion.Header>No Ponytail</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" required /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" required /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" required /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" required /></Col>
+                        <Col> <Form.Control value={bskNoPonyQ1} onChange={handlebskNoPonyQ1} type="number" placeholder="Q1" required /></Col>
+                        <Col> <Form.Control value={bskNoPonyQ2} onChange={handlebskNoPonyQ2} type="number" placeholder="Q2" required /></Col>
+						<Col> <Form.Control value={bskNoPonyQ3} onChange={handlebskNoPonyQ3} type="number" placeholder="Q3" required /></Col>
+						<Col> <Form.Control value={bskNoPonyQ4} onChange={handlebskNoPonyQ4} type="number" placeholder="Q4" required /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1302,10 +1402,10 @@ function Create() {
                 <Accordion.Header>Short/ Long Cutting of Polybag</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskShortQ1} onChange={handlebskShortQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskShortQ2} onChange={handlebskShortQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskShortQ3} onChange={handlebskShortQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskShortQ4} onChange={handlebskShortQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1317,10 +1417,10 @@ function Create() {
                 <Accordion.Header>Late Bagging/ Debelling</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskLateQ1} onChange={handlebskLateQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskLateQ2} onChange={handlebskLateQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskLateQ3} onChange={handlebskLateQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskLateQ4} onChange={handlebskLateQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1333,10 +1433,10 @@ function Create() {
                 <Accordion.Header>No Plastic Insert</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskNoPlasticQ1} onChange={handlebskNoPlasticQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskNoPlasticQ2} onChange={handlebskNoPlasticQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskNoPlasticQ3} onChange={handlebskNoPlasticQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskNoPlasticQ4} onChange={handlebskNoPlasticQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1348,10 +1448,10 @@ function Create() {
                 <Accordion.Header>Improper Installation</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskImproperQ1} onChange={handlebskImproperQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskImproperQ2} onChange={handlebskImproperQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskImproperQ3} onChange={handlebskImproperQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskImproperQ4} onChange={handlebskImproperQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1363,10 +1463,10 @@ function Create() {
                 <Accordion.Header>Incomplete</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskIncompleteQ1} onChange={handlebskIncompleteQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskIncompleteQ2} onChange={handlebskIncompleteQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskIncompleteQ3} onChange={handlebskIncompleteQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskIncompleteQ4} onChange={handlebskIncompleteQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1378,10 +1478,10 @@ function Create() {
                 <Accordion.Header>No Sunburn Protection (Newspaper)</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskNoSunburnQ1} onChange={handlebskNoSunburnQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskNoSunburnQ2} onChange={handlebskNoSunburnQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskNoSunburnQ3} onChange={handlebskNoSunburnQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskNoSunburnQ4} onChange={handlebskNoSunburnQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1393,14 +1493,14 @@ function Create() {
                 <Accordion.Header>Total No. of Samples</Accordion.Header>
                 <Accordion.Body>
                      <Row className="justify-content-center">
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q1" /></Col>
-                        <Col> <Form.Control value={} onChange={} type="number" placeholder="Q2" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q3" /></Col>
-						<Col> <Form.Control value={} onChange={} type="number" placeholder="Q4" /></Col>
+                        <Col> <Form.Control value={bskTotalSamplesQ1} onChange={handlebskTotalSamplesQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={bskTotalSamplesQ2} onChange={handlebskTotalSamplesQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={bskTotalSamplesQ3} onChange={handlebskTotalSamplesQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={bskTotalSamplesQ4} onChange={handlebskTotalSamplesQ4} type="number" placeholder="Q4" /></Col>
                       </Row>
                 </Accordion.Body>
               </Accordion.Item>
-			  </Accordion>			 
+			  </Accordion>
 			 
 		 </Col>
        </Row>	   
@@ -1413,6 +1513,105 @@ function Create() {
 	{/* ========= */}
 	{/* END, BAGSOK */}
 	{/* ========= */}
+	<br />
+	<br />
+	<br />
+		  
+	
+
+	{/* ============= */}
+	{/* LEAF TRIMMING */}
+	{/* ============= */}
+       <Row className="justify-content-center">
+         <Col xs={10}>
+			 <h4 className="m-0">LEAF TRIMMING</h4>
+			 {/* Missout */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Missout</Accordion.Header>
+                <Accordion.Body>
+					  <Row className="justify-content-center">
+                        <Col><Form.Control type="number" value={leafMissoutQ1} onChange={handleleafMissoutQ1} required placeholder="Q1" /></Col>
+                        <Col><Form.Control type="number" value={leafMissoutQ2} onChange={handleleafMissoutQ2} required placeholder="Q2" /></Col>
+						<Col><Form.Control type="number" value={leafMissoutQ3} onChange={handleleafMissoutQ3} required placeholder="Q3" /></Col>
+						<Col><Form.Control type="number" value={leafMissoutQ4} onChange={handleleafMissoutQ4} required placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Late ( ˃ 1 week old) */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Late ( ˃ 1 week old)</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={leafLateQ1} onChange={handleleafLateQ1} type="number" placeholder="Q1" required /></Col>
+                        <Col> <Form.Control value={leafLateQ2} onChange={handleleafLateQ2} type="number" placeholder="Q2" required /></Col>
+						<Col> <Form.Control value={leafLateQ3} onChange={handleleafLateQ3} type="number" placeholder="Q3" required /></Col>
+						<Col> <Form.Control value={leafLateQ4} onChange={handleleafLateQ4} type="number" placeholder="Q4" required /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Over Cut */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Over Cut</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={leafOverQ1} onChange={handleleafOverQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={leafOverQ2} onChange={handleleafOverQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={leafOverQ3} onChange={handleleafOverQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={leafOverQ4} onChange={handleleafOverQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 {/* Non FOR */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Non FOR</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={leafNonQ1} onChange={handleleafNonQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={leafNonQ2} onChange={handleleafNonQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={leafNonQ3} onChange={handleleafNonQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={leafNonQ4} onChange={handleleafNonQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+			 
+			 {/* Total No. of Samples */}
+			 <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Total No. of Samples</Accordion.Header>
+                <Accordion.Body>
+                     <Row className="justify-content-center">
+                        <Col> <Form.Control value={leafTotalSamplesQ1} onChange={handleleafTotalSamplesQ1} type="number" placeholder="Q1" /></Col>
+                        <Col> <Form.Control value={leafTotalSamplesQ2} onChange={handleleafTotalSamplesQ2} type="number" placeholder="Q2" /></Col>
+						<Col> <Form.Control value={leafTotalSamplesQ3} onChange={handleleafTotalSamplesQ3} type="number" placeholder="Q3" /></Col>
+						<Col> <Form.Control value={leafTotalSamplesQ4} onChange={handleleafTotalSamplesQ4} type="number" placeholder="Q4" /></Col>
+                      </Row>
+                </Accordion.Body>
+              </Accordion.Item>
+			  </Accordion>
+			 
+		 </Col>
+       </Row>	   
+
+	   {/* another row for displaying score */}
+	   <Row className="justify-content-center ps-3 pe-3">
+		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(leafMissout + leafLate + leafOver + leafNon)}%</h6></Col>
+	   </Row>	
+	{/* ================== */}
+	{/* END, LEAF TRIMMING */}
+	{/* ================== */}
 	<br />
 	<br />
 	<br />
