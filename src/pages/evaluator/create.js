@@ -1095,7 +1095,7 @@ function Create() {
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(bbLateInstallation+bbMissOut+bbLateRetrieval+bbImproperInstall+bbNoMarking)}%</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(bbLateInstallation+bbMissOut+bbLateRetrieval+bbImproperInstall+bbNoMarking)}%</h6></Col>
 	   </Row>
 
 	{/* ================ */}
@@ -1179,7 +1179,7 @@ function Create() {
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(pgLate + pgMissout + pgImproper)}%</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(pgLate + pgMissout + pgImproper)}%</h6></Col>
 	   </Row>
     {/* ===================== */}
 	{/* END, PROPPING/ GUYING */}
@@ -1277,7 +1277,7 @@ function Create() {
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(bsMissout + bsBunch + bsUndercycle + bsNoMark)}%</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(bsMissout + bsBunch + bsUndercycle + bsNoMark)}%</h6></Col>
 	   </Row>	    
     {/* ================ */}
 	{/* END, BUNCH SPRAY */}
@@ -1480,7 +1480,7 @@ function Create() {
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(fddoLateFirst + fddoLateFinal + fddoImproper + fddoExtreme + fddoFused + fddoSingle + fddoExcess + fddoMissout + fddoLate3to5 + fddoNonFollowing + fddoNoMark)}%</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(fddoLateFirst + fddoLateFinal + fddoImproper + fddoExtreme + fddoFused + fddoSingle + fddoExcess + fddoMissout + fddoLate3to5 + fddoNonFollowing + fddoNoMark)}%</h6></Col>
 	   </Row>	    
 	{/* ========= */}
 	{/* END, FDDO */}
@@ -1639,7 +1639,7 @@ function Create() {
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn)}%</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn)}%</h6></Col>
 	   </Row>
 	{/* ========= */}
 	{/* END, BAGSOK */}
@@ -1738,7 +1738,7 @@ function Create() {
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
 		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(leafMissout + leafLate + leafOver + leafNon)}%</h6></Col>
+		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(leafMissout + leafLate + leafOver + leafNon)}%</h6></Col>
 	   </Row>	
 	{/* ================== */}
 	{/* END, LEAF TRIMMING */}
@@ -1750,7 +1750,7 @@ function Create() {
 	{/* Overall Score */}
 	<Row className="justify-content-center ps-3 pe-3">
 	  <Col xs={4} className="border border-dark rounded"><h6>Overall Score</h6></Col>
-	  <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
+	  <Col xs={6} className="border border-dark rounded"><h6>{Math.round(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
 	</Row>
 	<br/>
 	<br/>
