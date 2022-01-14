@@ -3,10 +3,36 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios"
+import PouchDB from "pouchdb"
 import { Container, Row, Col, Accordion, Form, Button } from 'react-bootstrap';
 
 
 function Create() {
+	
+	// ACCORDION
+	var [farm, setFarm] = useState("")
+	function handleFarm(e){
+		setFarm(e.target.value)
+	}
+	
+	var [location, setLocation] = useState("")
+	function handleLocation(e){
+		setLocation(e.target.value)
+	}
+	
+	var [date, setDate] = useState("")
+	function handleDate(e){
+		setDate(e.target.value)
+	}
+	
+	var [week, setWeek] = useState("")
+	function handleWeek(e){
+		setWeek(e.target.value)
+	}
+	// ==============
+	// end, accordion
+	// ==============
+	
 	
 	// ===========
 	// BUD BAGGING
@@ -831,14 +857,103 @@ function Create() {
     var wholeBagsok = bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn
     var wholeLeaf = leafMissout + leafLate + leafOver + leafNon
 
-
+	
+	// =======
+	// PouchDB
+	// =======
+	var db = new PouchDB("Blog")
+    
+	// ===========
+	// form submit
+	// ===========
+	async function handleSubmit(e){
+		e.preventDefault()
+		console.log("submit section")
+		
+		try {
+        await db.post({
+			farm:farm,
+			location:location,
+			date:date,
+			week:week,
+			
+			bbLateInstallationQ: [bbLateInstallationQ1, bbLateInstallationQ2, bbLateInstallationQ3, bbLateInstallationQ4],
+			bbMissOutQ: [bbMissOutQ1,bbMissOutQ2,bbMissOutQ3,bbMissOutQ4],
+			bbLateRetrievalQ: [bbLateRetrievalQ1,bbLateRetrievalQ2,bbLateRetrievalQ3,bbLateRetrievalQ4],
+			bbImproperInstallQ: [bbImproperInstallQ1,bbImproperInstallQ2,bbImproperInstallQ3,bbImproperInstallQ4],
+			bbNoMarkingQ: [bbNoMarkingQ1,bbNoMarkingQ2,bbNoMarkingQ3,bbNoMarkingQ4],
+			bbTotalSamplesQ: [bbTotalSamplesQ1,bbTotalSamplesQ2,bbTotalSamplesQ3,bbTotalSamplesQ4],
+			wholeBud: Math.round(wholeBud),
+			
+			
+			pgLateQ: [pgLateQ1,pgLateQ2,pgLateQ3,pgLateQ4],
+			pgMissoutQ: [pgMissoutQ1,pgMissoutQ2,pgMissoutQ3,pgMissoutQ4],
+			pgImproperQ: [pgImproperQ1,pgImproperQ2,pgImproperQ3,pgImproperQ4],
+			pgTotalSamplesQ: [pgTotalSamplesQ1,pgTotalSamplesQ2,pgTotalSamplesQ3,pgTotalSamplesQ4],
+			wholePropping: Math.round(wholePropping),
+			
+			
+			bsMissoutQ: [bsMissoutQ1,bsMissoutQ2,bsMissoutQ3,bsMissoutQ4],
+			bsBunchQ: [bsBunchQ1,bsBunchQ2,bsBunchQ3,bsBunchQ4],
+			bsUndercycleQ: [bsUndercycleQ1,bsUndercycleQ2,bsUndercycleQ3,bsUndercycleQ4],
+			bsNoMarkQ: [bsNoMarkQ1,bsNoMarkQ2,bsNoMarkQ3,bsNoMarkQ4],
+			bsTotalSamplesQ: [bsTotalSamplesQ1,bsTotalSamplesQ2,bsTotalSamplesQ3,bsTotalSamplesQ4],
+			wholeBunch: Math.round(wholeBunch),
+			
+			
+			fddoLateFirstQ: [fddoLateFirstQ1,fddoLateFirstQ2,fddoLateFirstQ3,fddoLateFirstQ4],
+			fddoLateFinalQ: [fddoLateFinalQ1,fddoLateFinalQ2,fddoLateFinalQ3,fddoLateFinalQ4],
+			fddoImproperQ: [fddoImproperQ1,fddoImproperQ2,fddoImproperQ3,fddoImproperQ4],
+			fddoExtremeQ: [fddoExtremeQ1,fddoExtremeQ2,fddoExtremeQ3,fddoExtremeQ4],
+			fddoFusedQ: [fddoFusedQ1,fddoFusedQ2,fddoFusedQ3,fddoFusedQ4],
+			fddoSingleQ: [fddoSingleQ1,fddoSingleQ2,fddoSingleQ3,fddoSingleQ4],
+			fddoExcessQ: [fddoExcessQ1,fddoExcessQ2,fddoExcessQ3,fddoExcessQ4],
+			fddoMissoutQ: [fddoMissoutQ1,fddoMissoutQ2,fddoMissoutQ3,fddoMissoutQ4],
+			fddoLate3to5Q: [fddoLate3to5Q1,fddoLate3to5Q2,fddoLate3to5Q3,fddoLate3to5Q4],
+			fddoNonFollowingQ: [fddoNonFollowingQ1,fddoNonFollowingQ2,fddoNonFollowingQ3,fddoNonFollowingQ4],
+			fddoNoMarkQ: [fddoNoMarkQ1,fddoNoMarkQ2,fddoNoMarkQ3,fddoNoMarkQ4],
+			fddoTotalSamplesQ: [fddoTotalSamplesQ1,fddoTotalSamplesQ2,fddoTotalSamplesQ3,fddoTotalSamplesQ4],
+			wholeFddo: Math.round(wholeFddo),
+			
+			
+			bskLowQ: [bskLowQ1,bskLowQ2,bskLowQ3,bskLowQ4],
+			bskNoPonyQ: [bskNoPonyQ1,bskNoPonyQ2,bskNoPonyQ3,bskNoPonyQ4],
+			bskShortQ: [bskShortQ1,bskShortQ2,bskShortQ3,bskShortQ4],
+			bskLateQ: [bskLateQ1,bskLateQ2,bskLateQ3,bskLateQ4],
+			bskNoPlasticQ: [bskNoPlasticQ1,bskNoPlasticQ2,bskNoPlasticQ3,bskNoPlasticQ4],
+			bskImproperQ: [bskImproperQ1,bskImproperQ2,bskImproperQ3,bskImproperQ4],
+			bskIncompleteQ: [bskIncompleteQ1,bskIncompleteQ2,bskIncompleteQ3,bskIncompleteQ4],
+			bskNoSunburnQ: [bskNoSunburnQ1,bskNoSunburnQ2,bskNoSunburnQ3,bskNoSunburnQ4],
+			bskTotalSamplesQ: [bskTotalSamplesQ1,bskTotalSamplesQ2,bskTotalSamplesQ3,bskTotalSamplesQ4],
+			wholeBagsok: Math.round(wholeBagsok),
+			
+			
+			leafMissoutQ: [leafMissoutQ1,leafMissoutQ2,leafMissoutQ3,leafMissoutQ4],
+			leafLateQ: [leafLateQ1,leafLateQ2,leafLateQ3,leafLateQ4],
+			leafOverQ: [leafOverQ1,leafOverQ2,leafOverQ3,leafOverQ4],
+			leafNonQ: [leafNonQ1,leafNonQ2,leafNonQ3,leafNonQ4],
+			leafTotalSamplesQ: [leafTotalSamplesQ1,leafTotalSamplesQ2,leafTotalSamplesQ3,leafTotalSamplesQ4],	
+			wholeLeaf: Math.round(wholeLeaf),
+			
+			overallScore: Math.round( (wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf)/6 )     
+        })
+		}
+		catch (err){ console.log(err) }
+		// ==============
+		// end, form data
+		// ==============
+		
+	}
+	// ================
+	// end, form submit
+	// ================
 
 	
   return (
     <div>
 		  
      <Container>
-	  <Form>
+	  <Form onSubmit={handleSubmit}>
        <Row className="justify-content-center">
          <Col xs={10}>
 			 <p className="mt-5 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
@@ -852,19 +967,22 @@ function Create() {
                 <Accordion.Body>
                       <Form.Group className="mb-1">
                         <Form.Label>Farm</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" value={farm} onChange={handleFarm} required />
                       </Form.Group>
+					
 					  <Form.Group className="mb-1">
                         <Form.Label>Location/Block No.</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" value={location} onChange={handleLocation} required />
                       </Form.Group>
+					
 					  <Form.Group className="mb-1">
                         <Form.Label>Date</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" value={date} onChange={handleDate} required />
                       </Form.Group>
+					
 					  <Form.Group className="mb-1">
                         <Form.Label>Week No.</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" value={week} onChange={handleWeek} required />
                       </Form.Group>
                 </Accordion.Body>
               </Accordion.Item>
@@ -1631,9 +1749,18 @@ function Create() {
 
 	{/* Overall Score */}
 	<Row className="justify-content-center ps-3 pe-3">
-	  <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
+	  <Col xs={4} className="border border-dark rounded"><h6>Overall Score</h6></Col>
 	  <Col xs={6} className="border border-dark rounded"><h6>{Math.floor(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
 	</Row>
+	<br/>
+	<br/>
+	
+	<Row className="justify-content-center">
+	  <Col xs={10} ><Button type="submit" variant="dark">Submit</Button></Col>
+	</Row>
+	<br/>
+	<br/>
+	<br/>
 
  
 	   </Form>

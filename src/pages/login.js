@@ -1,14 +1,73 @@
 
-import React, {useState, useEffect} from 'react';
-import {Link} from "react-router-dom";
+import React, {useState, useEffect} from 'react'
+import {Link} from "react-router-dom"
 import axios from "axios"
 import MD5 from "../helpers/MD5"
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap'
+
+//import DB from '../PouchDB/db'
+import PouchDB from "pouchdb"
 
 
-function Login() {  
+function Login() {
 	
+	var [fd, setFd] = useState("")
 	
+	// =======
+	// PouchDB
+	// =======
+	var db = new PouchDB("Blog")
+	async function runDB(){
+
+          // create
+          try {
+           await db.post({
+             "name": "Ben Silvoza",
+             "occupation": "Dev",
+             "age": 25,
+             "hobbies": [
+               "playing with balls of yarn4", "chasing laser pointers", "lookin' hella cute"]
+           })
+		  }
+	      catch (err){
+			  console.log(err)
+			  console.log("create: error")
+		  }
+		
+		  // get
+		  try {
+             //var myForm = await db.get('244');
+	     	 //console.log(myForm)
+          }
+	      catch (err){
+			  console.log(err)
+			  console.log("get: error")
+		  }
+		
+	}
+	// call
+	runDB();
+	// ============
+	// END, PouchDB
+	// ============
+	
+	useEffect(async function (){
+		// get all
+		  try {
+	         var getAllDocs = await db.allDocs({include_docs:true})
+			 // add callback to prevent delay
+			 setFd(function (){
+				 return getAllDocs
+			 })
+			 
+	      }
+		  catch (err){
+			  console.log(err)
+			  console.log("get all: error")
+		  }
+	}, [])
+	
+	console.log(fd["rows"])
   return (
     <div>	
 	  
