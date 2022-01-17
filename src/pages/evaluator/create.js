@@ -952,11 +952,30 @@ function Create() {
   return (
     <div>
 		  
+    <div className="bg-secondary">
+    <Container>
+		<Row className="justify-content-center">
+			<Col xs={10}>
+				<h4 className="m-0 text-white pt-3 pb-3">FARM KPI</h4>
+			</Col>
+		</Row>
+	</Container>
+	</div>
+	
+	<br />
+	<Container>
+		<Row className="justify-content-center">
+			<Col xs={10}>
+				<p className="text-decoration-underline">GO BACK</p>
+			</Col>
+		</Row>
+	</Container>
+		  
      <Container>
 	  <Form onSubmit={handleSubmit}>
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <p className="mt-5 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
 			 <p className="m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
 			 
