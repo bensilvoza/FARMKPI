@@ -871,7 +871,8 @@ function Create() {
 		console.log("submit section")
 		
 		try {
-        await db.post({
+        await db.put({
+			_id:new Date().toJSON(),
 			farm:farm,
 			location:location,
 			date:date,
@@ -935,7 +936,11 @@ function Create() {
 			leafTotalSamplesQ: [leafTotalSamplesQ1,leafTotalSamplesQ2,leafTotalSamplesQ3,leafTotalSamplesQ4],	
 			wholeLeaf: Math.round(wholeLeaf),
 			
-			overallScore: Math.round( (wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf)/6 )     
+			overallScore: Math.round( (wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf)/6 ),     
+			
+			evaluatorName: localStorage.getItem("evaluatorName"),
+			supervisorName: "",
+			status: "offline"
         })
 		}
 		catch (err){ console.log(err) }
@@ -947,6 +952,13 @@ function Create() {
 	// ================
 	// end, form submit
 	// ================
+	
+	
+	function handleClickGoBack(){
+		return window.location = "/evaluator"
+	}
+	
+	
 
 	
   return (
@@ -966,7 +978,7 @@ function Create() {
 	<Container>
 		<Row className="justify-content-center">
 			<Col xs={10}>
-				<p className="text-decoration-underline">GO BACK</p>
+				<p style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
 			</Col>
 		</Row>
 	</Container>
@@ -975,15 +987,11 @@ function Create() {
 	  <Form onSubmit={handleSubmit}>
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <p className="mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
-			 <p className="m-0 text-center">FRUIT CARE  EVALUATION</p>
+			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
 			 
 			 {/* Information */}
-			 <Accordion defaultActiveKey="0">
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Accordion</Accordion.Header>
-                <Accordion.Body>
                       <Form.Group className="mb-1">
                         <Form.Label>Farm</Form.Label>
                         <Form.Control type="text" value={farm} onChange={handleFarm} required />
@@ -1003,9 +1011,6 @@ function Create() {
                         <Form.Label>Week No.</Form.Label>
                         <Form.Control type="text" value={week} onChange={handleWeek} required />
                       </Form.Group>
-                </Accordion.Body>
-              </Accordion.Item>
-			  </Accordion>
 		 </Col>
        </Row>
 	
@@ -1113,8 +1118,8 @@ function Create() {
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(bbLateInstallation+bbMissOut+bbLateRetrieval+bbImproperInstall+bbNoMarking)}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(bbLateInstallation+bbMissOut+bbLateRetrieval+bbImproperInstall+bbNoMarking)}%</h6></Col>
 	   </Row>
 
 	{/* ================ */}
@@ -1197,8 +1202,8 @@ function Create() {
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(pgLate + pgMissout + pgImproper)}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(pgLate + pgMissout + pgImproper)}%</h6></Col>
 	   </Row>
     {/* ===================== */}
 	{/* END, PROPPING/ GUYING */}
@@ -1295,8 +1300,8 @@ function Create() {
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(bsMissout + bsBunch + bsUndercycle + bsNoMark)}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(bsMissout + bsBunch + bsUndercycle + bsNoMark)}%</h6></Col>
 	   </Row>	    
     {/* ================ */}
 	{/* END, BUNCH SPRAY */}
@@ -1498,8 +1503,8 @@ function Create() {
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(fddoLateFirst + fddoLateFinal + fddoImproper + fddoExtreme + fddoFused + fddoSingle + fddoExcess + fddoMissout + fddoLate3to5 + fddoNonFollowing + fddoNoMark)}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(fddoLateFirst + fddoLateFinal + fddoImproper + fddoExtreme + fddoFused + fddoSingle + fddoExcess + fddoMissout + fddoLate3to5 + fddoNonFollowing + fddoNoMark)}%</h6></Col>
 	   </Row>	    
 	{/* ========= */}
 	{/* END, FDDO */}
@@ -1657,8 +1662,8 @@ function Create() {
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn)}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(bskLow + bskNoPony + bskShort + bskLate + bskNoPlastic + bskImproper + bskIncomplete + bskNoSunburn)}%</h6></Col>
 	   </Row>
 	{/* ========= */}
 	{/* END, BAGSOK */}
@@ -1756,8 +1761,8 @@ function Create() {
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{Math.round(leafMissout + leafLate + leafOver + leafNon)}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(leafMissout + leafLate + leafOver + leafNon)}%</h6></Col>
 	   </Row>	
 	{/* ================== */}
 	{/* END, LEAF TRIMMING */}
@@ -1768,8 +1773,8 @@ function Create() {
 
 	{/* Overall Score */}
 	<Row className="justify-content-center ps-3 pe-3">
-	  <Col xs={4} className="border border-dark rounded"><h6>Overall Score</h6></Col>
-	  <Col xs={6} className="border border-dark rounded"><h6>{Math.round(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
+	  <Col xs={4} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Overall Score</h6></Col>
+	  <Col xs={6} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
 	</Row>
 	<br/>
 	<br/>

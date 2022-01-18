@@ -51,6 +51,7 @@ function Login() {
 					 
 					 localStorage.setItem("loginApproved", true)
 					 localStorage.setItem("role", users[i]["role"])
+					 localStorage.setItem("evaluatorName", users[i]["fname"] + " " + users[i]["lname"])
 					 
 					 return window.location = "/" + users[i]["role"]
 				 }

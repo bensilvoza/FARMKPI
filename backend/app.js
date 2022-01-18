@@ -33,8 +33,7 @@ connection.once('open', function () {
 //======
 //ROUTES
 app.use(index)
-//app.use(admin)
-//app.use(evaluator)
+app.use(evaluator)
 //app.use(supervisor)
 
 

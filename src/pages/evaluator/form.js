@@ -34,9 +34,13 @@ console.log(form)
 			  console.log("all forms: error")
 		  }
 	}, [])
-	console.log("test")
-	console.log(form)
-	console.log("end, test")
+	
+	
+	function handleClickGoBack(){
+		return window.location = "/evaluator"
+	}
+	
+	
   return (
     <div>
 		  
@@ -50,19 +54,24 @@ console.log(form)
 	</Container>
 	</div>
 		  
+	<br />
+	<Container>
+		<Row className="justify-content-center">
+			<Col xs={10}>
+				<p style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
+			</Col>
+		</Row>
+	</Container>
+		  
      <Container>
-	  <Form>
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <p className="mt-5 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
-			 <p className="m-0 text-center">FRUIT CARE  EVALUATION</p>
+			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
 			 
 			 {/* Information */}
-			 <Accordion defaultActiveKey="0">
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Accordion</Accordion.Header>
-                <Accordion.Body>
+			 
                       <Form.Group className="mb-1">
                         <Form.Label>Farm</Form.Label>
                         <Form.Control value={form["farm"]} readonly />
@@ -82,9 +91,7 @@ console.log(form)
                         <Form.Label>Week No.</Form.Label>
                         <Form.Control value={form["week"]} />
                       </Form.Group>
-                </Accordion.Body>
-              </Accordion.Item>
-			  </Accordion>
+               
 		 </Col>
        </Row>
 	
@@ -204,8 +211,8 @@ console.log(form)
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{form["wholeBud"]}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["wholeBud"]}%</h6></Col>
 	   </Row>
 
 	{/* ================ */}
@@ -296,8 +303,8 @@ console.log(form)
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{form["wholePropping"]}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["wholePropping"]}%</h6></Col>
 	   </Row>
     {/* ===================== */}
 	{/* END, PROPPING/ GUYING */}
@@ -404,8 +411,8 @@ console.log(form)
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{form["wholeBunch"]}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["wholeBunch"]}%</h6></Col>
 	   </Row>	    
     {/* ================ */}
 	{/* END, BUNCH SPRAY */}
@@ -631,8 +638,8 @@ console.log(form)
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{form["wholeFddo"]}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["wholeFddo"]}%</h6></Col>
 	   </Row>	    
 	{/* ========= */}
 	{/* END, FDDO */}
@@ -808,8 +815,8 @@ console.log(form)
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{form["wholeBagsok"]}%</h6></Col>
+		 <Col xs={4} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={6} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["wholeBagsok"]}%</h6></Col>
 	   </Row>
 	{/* ========= */}
 	{/* END, BAGSOK */}
@@ -917,8 +924,8 @@ console.log(form)
 
 	   {/* another row for displaying score */}
 	   <Row className="justify-content-center ps-3 pe-3">
-		 <Col xs={4} className="border border-dark rounded"><h6>Score</h6></Col>
-		 <Col xs={6} className="border border-dark rounded"><h6>{form["wholeLeaf"]}%</h6></Col>
+		 <Col xs={5} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Score</h6></Col>
+		 <Col xs={5} className="border rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["wholeLeaf"]}%</h6></Col>
 	   </Row>	
 	{/* ================== */}
 	{/* END, LEAF TRIMMING */}
@@ -929,21 +936,28 @@ console.log(form)
 
 	{/* Overall Score */}
 	<Row className="justify-content-center ps-3 pe-3">
-	  <Col xs={4} className="border border-dark rounded"><h6>Overall Score</h6></Col>
-	  <Col xs={6} className="border border-dark rounded"><h6>{form["overallScore"]}%</h6></Col>
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Overall Score</h6></Col>
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["overallScore"]}%</h6></Col>
 	</Row>
-	<br/>
-	<br/>
+		 
+	<Row className="justify-content-center ps-3 pe-3 mt-1">
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Evaluator</h6></Col>
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["evaluatorName"]}</h6></Col>
+	</Row>
 	
-	<Row className="justify-content-center">
-	  <Col xs={10} ><Button type="submit" variant="dark">Submit</Button></Col>
+	<Row className="justify-content-center ps-3 pe-3 mt-1">
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Supervisor</h6></Col>
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6></h6></Col>
 	</Row>
+	
+	
+	<br/>
 	<br/>
 	<br/>
 	<br/>
 
  
-	   </Form>
+	   
      </Container>
 
     </div>
