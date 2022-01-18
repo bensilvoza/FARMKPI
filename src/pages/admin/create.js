@@ -44,29 +44,50 @@ function Create() {
 		
 	}
 	
+	function handleGoBackClick(){
+		return window.location = "/admin"
+	}
+	
   return (
-    <div>	
+    <div>
+		  
+	<div className="bg-secondary">
+    <Container>
+		<Row className="justify-content-center">
+			<Col xs={10}>
+				<h4 className="m-0 text-white pt-3 pb-3">FARM KPI</h4>
+			</Col>
+		</Row>
+	</Container>
+	</div>
+		  
+	<Container>
+		<Row className="justify-content-center">
+			<Col xs={10}>
+				<p className="mt-3 text-decoration-underline" style={{cursor:"pointer"}} onClick={handleGoBackClick}>GO BACK</p>
+			</Col>
+		</Row>
+	</Container>
 	  
      <Container>
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <h2 className="mt-5">Add Roles</h2>
-			 <br />
-			 <br />
+			 <h2 className="mt-5">Create Role</h2>
+			 
 	       <Form onSubmit={handleSubmit}>
              <Form.Group className="mb-3" controlId="formBasicEmail">
                <Form.Label>First Name</Form.Label>
-               <Form.Control value={fname} onChange={handleFname} type="text" />
+               <Form.Control value={fname} onChange={handleFname} type="text" required />
              </Form.Group>
 			   
 			 <Form.Group className="mb-3" controlId="formBasicEmail">
                <Form.Label>Last Name</Form.Label>
-               <Form.Control value={lname} onChange={handleLname} type="text" />
+               <Form.Control value={lname} onChange={handleLname} type="text" required />
              </Form.Group>
 			   
 			 <Form.Group className="mb-3" controlId="formBasicEmail">
                <Form.Label>Role</Form.Label>
-               <Form.Control value={role} onChange={handleRole} type="text" />
+               <Form.Control value={role} onChange={handleRole} type="text" required />
 			   <Form.Text className="text-muted">
                  Example: Evaluator or Supervisor
                </Form.Text>
@@ -74,7 +95,7 @@ function Create() {
 
              <Form.Group className="mb-3" controlId="formBasicPassword">
                <Form.Label>Email</Form.Label>
-               <Form.Control value={email} onChange={handleEmail} type="email" />
+               <Form.Control value={email} onChange={handleEmail} type="email" required />
              </Form.Group>
              
 			 <div className="d-grid gap-2">

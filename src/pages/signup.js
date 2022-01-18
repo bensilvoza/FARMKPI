@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
 import MD5 from "../helpers/MD5"
 import axios from "axios"
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 
 function SignUp() {  
 	
@@ -54,7 +54,7 @@ function SignUp() {
 			 }
 		}
 		
-		return window.location = "/signup"
+		setError(true)
 	}
 	
   return (
@@ -73,6 +73,10 @@ function SignUp() {
      <Container>
        <Row className="justify-content-center">
          <Col xs={10}>
+			 {error &&
+			 <Alert className="mt-2" variant="danger">Incorrect Credential</Alert>
+			 }
+			 
 			 <h2 className="mt-5">Create Account</h2>
 	       <Form onSubmit={handleSubmit} autoComplete="off">
 			   
