@@ -57,9 +57,12 @@ function Forms() {
 					 formsCopy.push(forms[i])
 				}
 				
+				// check if PouchDB docs needs an update
+				var pageNeedsToBeRefresh
 				for (var i = 0; i < formsCopy.length; i++){
 					 if (formsCopy[i]["status"] === "offline"){
 						 formsCopy[i]["status"] = "online"
+						 pageNeedsToBeRefresh = true
 					 } else break
 				}
 				
@@ -70,6 +73,9 @@ function Forms() {
                      }
 					 catch (err) {console.log(err)}
 				}
+				
+				if (pageNeedsToBeRefresh === true) window.location = "/evaluator"
+				console.log("Refresh page")
 			}
 			
 		}

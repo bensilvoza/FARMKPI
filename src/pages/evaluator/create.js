@@ -948,6 +948,8 @@ function Create() {
 		// end, form data
 		// ==============
 		
+		return window.location = "/evaluator"
+		
 	}
 	// ================
 	// end, form submit
@@ -1774,7 +1776,7 @@ function Create() {
 	{/* Overall Score */}
 	<Row className="justify-content-center ps-3 pe-3">
 	  <Col xs={4} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Overall Score</h6></Col>
-	  <Col xs={6} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round(wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf) / 6}%</h6></Col>
+	  <Col xs={6} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{Math.round( (wholeBud + wholePropping + wholeBunch + wholeFddo + wholeBagsok + wholeLeaf)/6 )}%</h6></Col>
 	</Row>
 	<br/>
 	<br/>

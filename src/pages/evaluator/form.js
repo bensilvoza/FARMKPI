@@ -70,8 +70,8 @@ console.log(form)
 			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
 			 
-			 {/* Information */}
 			 
+			 {/* Information */}
                       <Form.Group className="mb-1">
                         <Form.Label>Farm</Form.Label>
                         <Form.Control value={form["farm"]} readonly />
@@ -919,6 +919,7 @@ console.log(form)
               </Accordion.Item>
 			  </Accordion>
 			 
+			 
 		 </Col>
        </Row>	   
 
@@ -950,7 +951,7 @@ console.log(form)
 	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6></h6></Col>
 	</Row>
 	
-	
+
 	<br/>
 	<br/>
 	<br/>
