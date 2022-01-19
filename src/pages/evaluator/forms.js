@@ -36,6 +36,9 @@ function Forms() {
 		  }
 	}, [])
 	
+	// ======================================
+	// Code below completely needs a refactor
+	// ======================================
 	
 	// send all offline form to mongoDB
 	useEffect(async function (){

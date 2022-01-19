@@ -7,6 +7,8 @@ import SignUp from "./pages/signup"
 import EvaluatorCreate from "./pages/evaluator/create"
 import EvaluatorForms from "./pages/evaluator/forms"
 import EvaluatorForm from "./pages/evaluator/form"
+import SupervisorForms from "./pages/supervisor/forms"
+import SupervisorForm from "./pages/supervisor/form"
 import AdminCreate from "./pages/admin/create"
 import Admin from "./pages/admin/admin"
 
@@ -21,6 +23,8 @@ function App (){
 			<Route exact path="/evaluator" element={<EvaluatorForms />} />
 			<Route exact path="/evaluator/create" element={<EvaluatorCreate />} />
 			<Route exact path="/evaluator/:formId" element={<EvaluatorForm />} />
+			<Route exact path="/supervisor" element={<SupervisorForms />} />
+			<Route exact path="/supervisor/:formId" element={<SupervisorForm />} />
 			<Route exact path="/admin/create" element={<AdminCreate />} />
 			<Route exact path="/admin" element={<Admin />} />
 			

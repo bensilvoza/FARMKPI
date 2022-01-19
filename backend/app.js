@@ -34,7 +34,7 @@ connection.once('open', function () {
 //ROUTES
 app.use(index)
 app.use(evaluator)
-//app.use(supervisor)
+app.use(supervisor)
 
 
 //app.listen
