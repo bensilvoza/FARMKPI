@@ -18,6 +18,17 @@ console.log(form)
 	var db = new PouchDB("Blog")
 	console.log("outside")
 	useEffect(async function (){
+		
+		// if user is connected to the internet
+		// get the id and go to the database
+		if (navigator.onLine){
+			var getForm = await axios.get("https://farm-back.run-ap-south1.goorm.io/evaluator/" + formId)
+			setForm(getForm["data"]["form"])
+			
+			// terminate
+			return
+		}
+		
 		// get
 		  try {
 	         var f = await db.get(formId)
@@ -948,7 +959,7 @@ console.log(form)
 	
 	<Row className="justify-content-center ps-3 pe-3 mt-1">
 	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>Supervisor</h6></Col>
-	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6></h6></Col>
+	  <Col xs={5} className="border border-dark rounded" style={{paddingTop:"12px", paddingBottom:"12px", paddingLeft:"17px"}}><h6>{form["supervisorName"]}</h6></Col>
 	</Row>
 	
 

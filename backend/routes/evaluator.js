@@ -3,12 +3,12 @@ var express = require("express");
 var router  = express.Router();
 var Form = require("../models/form")
 
-// get > evaluator
-router.get("/evaluator", function (req, res){
-	
+
+router.get("/evaluator", async function (req, res){
+	var forms = await Form.find({})
+	res.json(forms)
 })
 
-// post > evaluator
 router.post("/evaluator", async function (req, res){
 	var forms = req.body
 	
@@ -17,6 +17,12 @@ router.post("/evaluator", async function (req, res){
          await sendForm.save()
 	}
 	res.json("online")
+})
+
+router.get("/evaluator/:id", async function (req, res){
+	
+	var form = await Form.findById(req.params.id)
+	res.json(form)
 })
 
 

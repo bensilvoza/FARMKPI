@@ -951,9 +951,9 @@ function Create() {
 		return window.location = "/evaluator"
 		
 	}
-	// ================
-	// end, form submit
-	// ================
+	// =================
+	// end, handleSubmit
+	// =================
 	
 	
 	function handleClickGoBack(){

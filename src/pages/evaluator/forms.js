@@ -23,8 +23,41 @@ function Forms() {
 			 for (var i = 0; i < allForms["rows"].length; i++){
 				  allFormsArray.push(allForms["rows"][i]["doc"])
 			 }
+			  
+			 // if user is connected to the internet
+			 // remove first the _id and _rev to
+			 // prevent error in mongoDB,
+			 // send the offline forms to mongoDB
+			 // and now delete all docs from pouchDB
+			 // lastly update forms state
+			 if (navigator.onLine){
+				 for (var i = 0; i < allFormsArray.length; i++){
+					  delete allFormsArray[i]["_id"]
+					  delete allFormsArray[i]["_rev"]
+					  allFormsArray[i]["status"] = "online"
+				 }
+				 
+				 var sendOfflineForms = await axios.post("https://farm-back.run-ap-south1.goorm.io/evaluator", allFormsArray)   
+				 if (sendOfflineForms["data"] === "online"){
+					 // delete pouchDB
+					 try {
+                        await db.destroy();
+                     } catch (err) {
+                        console.log(err);
+                     }
+					 
+					 // update forms state and return command
+					 var getAllForms = await axios.get("https://farm-back.run-ap-south1.goorm.io/evaluator")
+					 setForms(getAllForms["data"])
+					 
+					 // terminate
+					 return
+				 }
+			 }
+			 
 			 allFormsArray.reverse()
-			
+			 console.log("allFormsArray")
+			 console.log(allFormsArray)
 			 // add callback to prevent delay
 			 setForms( function (){
 				 return allFormsArray
@@ -39,50 +72,49 @@ function Forms() {
 	// ======================================
 	// Code below completely needs a refactor
 	// ======================================
-	
 	// send all offline form to mongoDB
-	useEffect(async function (){
-		var offlineForms = []
-		if (forms.length !== 0){
-			for (var i = 0; i < forms.length; i++){
-				 if (forms[i]["status"] === "offline"){
-					 offlineForms.push(forms[i])
-				 } else break
-			}
-			var sendOfflineForms = await axios.post("https://farm-back.run-ap-south1.goorm.io/evaluator", offlineForms)  
-			if (sendOfflineForms["data"] === "online"){
-				// array and object in JavaScript are
-				// immutable that is why you need to
-				// create a copy, to not destroy the
-				// original version
-				var formsCopy = []
-				for (var i = 0; i < forms.length; i++){
-					 formsCopy.push(forms[i])
-				}
+	// useEffect(async function (){
+	// 	var offlineForms = []
+	// 	if (forms.length !== 0){
+	// 		for (var i = 0; i < forms.length; i++){
+	// 			 if (forms[i]["status"] === "offline"){
+	// 				 offlineForms.push(forms[i])
+	// 			 } else break
+	// 		}
+	// 		var sendOfflineForms = await axios.post("https://farm-back.run-ap-south1.goorm.io/evaluator", offlineForms)  
+	// 		if (sendOfflineForms["data"] === "online"){
+	// 			// array and object in JavaScript are
+	// 			// immutable that is why you need to
+	// 			// create a copy, to not destroy the
+	// 			// original version
+	// 			var formsCopy = []
+	// 			for (var i = 0; i < forms.length; i++){
+	// 				 formsCopy.push(forms[i])
+	// 			}
 				
-				// check if PouchDB docs needs an update
-				var pageNeedsToBeRefresh
-				for (var i = 0; i < formsCopy.length; i++){
-					 if (formsCopy[i]["status"] === "offline"){
-						 formsCopy[i]["status"] = "online"
-						 pageNeedsToBeRefresh = true
-					 } else break
-				}
+	// 			// check if PouchDB docs needs an update
+	// 			var pageNeedsToBeRefresh
+	// 			for (var i = 0; i < formsCopy.length; i++){
+	// 				 if (formsCopy[i]["status"] === "offline"){
+	// 					 formsCopy[i]["status"] = "online"
+	// 					 pageNeedsToBeRefresh = true
+	// 				 } else break
+	// 			}
 				
-				// update document in pouchDB
-				for (var i = 0; i < formsCopy.length; i++){
-					 try {
-                       await db.put(formsCopy[i])
-                     }
-					 catch (err) {console.log(err)}
-				}
+	// 			// update document in pouchDB
+	// 			for (var i = 0; i < formsCopy.length; i++){
+	// 				 try {
+	// await db.put(formsCopy[i])
+	// }
+	// 				 catch (err) {console.log(err)}
+	// 			}
 				
-				if (pageNeedsToBeRefresh === true) window.location = "/evaluator"
-				console.log("Refresh page")
-			}
+	// 			if (pageNeedsToBeRefresh === true) window.location = "/evaluator"
+	// 			console.log("Refresh page")
+	// 		}
 			
-		}
-	}, [forms])
+	// 	}
+	// }, [forms])
 	
 	function handleClick(formId){
 		return window.location = "/evaluator/" + formId
@@ -128,21 +160,21 @@ console.log(forms)
 			<div className="d-flex justify-content-between">
 			  <div> Farm </div>
 		      <div> Location / Block No. </div>
-			  <div> Date </div>
+			  <div> Conformed </div>
 		      <div> Status</div>
 			</div>
 		 </Col>
 		 { forms.map( (form) =>
          <Col key={form["_id"]} xs={8} className="border border-secondary rounded p-2 mb-1" style={{cursor: "pointer"}} onClick={ function (){return handleClick(form["_id"])} }>    
 			<div className="d-flex justify-content-between">
-			  <div> {form["farm"]} </div>
-		      <div> {form["location"]} </div>
-			  <div> {form["date"]} </div>
+			  <div> {form["form"]["farm"]} </div>
+		      <div> {form["form"]["location"]} </div>
+			  <div> {form["form"]["supervisorName"] !== "" ? form["form"]["supervisorName"] : "PENDING"} </div>
 		      <div className="d-flex align-items-center">
-				  {form["status"] === "offline" &&
+				  {form["form"]["status"] === "offline" &&
 				  <span style={{color:"red"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
 				  }
-				  {form["status"] === "online" &&
+				  {form["form"]["status"] === "online" &&
 				  <span style={{color:"green"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
 				  }
 			  </div>
