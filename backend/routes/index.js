@@ -7,7 +7,8 @@ var Register = require("../models/register")
 
 
 // login
-router.get("/login", function (req, res){
+router.get("/login", async function (req, res){
+	
 	
 })
 

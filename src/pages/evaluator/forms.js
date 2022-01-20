@@ -64,7 +64,7 @@ function Forms() {
 			 } )
 	      }
 		  catch (err){
-			  console.log(err)
+			  console.log(err) 
 			  console.log("all forms: error")
 		  }
 	}, [])
