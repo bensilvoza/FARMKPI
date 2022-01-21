@@ -64,8 +64,8 @@ console.log(form)
 		</Row>
 	</Container>
 	</div>
-		  
-	<br />
+
+	{/*
 	<Container>
 		<Row className="justify-content-center">
 			<Col xs={10}>
@@ -73,13 +73,15 @@ console.log(form)
 			</Col>
 		</Row>
 	</Container>
-		  
+	*/}
+  
      <Container>
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES</p>
 			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
+			 <p className="text-secondary" style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
 			 
 			 
 			 {/* Information */}

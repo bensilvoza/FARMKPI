@@ -23,16 +23,20 @@ function Forms() {
 	function handleClickForm(formId){
 		return window.location = "/supervisor/" + formId
 	}
+	function handleLogout(){
+		return window.location = "/login"
+	}
 	
-	console.log(forms)
+	
   return (
     <div>	
 	
 	<div className="bg-secondary">
     <Container>
 		<Row className="justify-content-center">
-			<Col xs={8}>
+			<Col xs={10} className="p-0 d-flex justify-content-between">
 				<h4 className="m-0 text-white pt-3 pb-3">FARM KPI</h4>
+				<p style={{cursor:"pointer"}} onClick={handleLogout} className="text-white align-self-center m-0">Logout</p>
 			</Col>
 		</Row>
 	</Container>
@@ -41,7 +45,7 @@ function Forms() {
      <Container>
 	   <Row className="justify-content-center">
 	     <Col xs={10}>
-			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES</p>
 			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 
 	     </Col>
@@ -51,16 +55,16 @@ function Forms() {
 	   <br/>
        <Row className="justify-content-center">
 		  
-		 <Col xs={8} className="border border-secondary rounded p-2 mb-1">
+		 <Col xs={10} className="border border-secondary rounded p-2 mb-1">
 			<div className="d-flex justify-content-between">
 			  <div> Farm </div>
-		      <div> Location / Block No. </div>
+		      <div> Location </div>
 			  <div> Date </div>
 		      <div> Conformed</div>
 			</div>
 		 </Col>
 		 { forms.map( (form) =>
-         <Col key={form["form"]["_id"]} xs={8} className="border border-secondary rounded p-2 mb-1" style={{cursor: "pointer"}} onClick={ function (){return handleClickForm(form["_id"])} }>    
+         <Col key={form["form"]["_id"]} xs={10} className="border border-secondary rounded p-2 mb-1" style={{cursor: "pointer"}} onClick={ function (){return handleClickForm(form["_id"])} }>    
 			<div className="d-flex justify-content-between">
 			  <div> {form["form"]["farm"]} </div>
 		      <div> {form["form"]["location"]} </div>

@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios"
 import PouchDB from "pouchdb"
-import { Container, Row, Col, Accordion, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Accordion, Form, Button, Modal } from 'react-bootstrap';
 
 
 function Create() {
@@ -956,6 +956,10 @@ function Create() {
 	// =================
 	
 	
+	var [showModal, setShowModal] = useState(false)
+    var handleCloseModal = () => setShowModal(false)
+    var handleShowModal = () => setShowModal(true)
+	
 	function handleClickGoBack(){
 		return window.location = "/evaluator"
 	}
@@ -976,22 +980,43 @@ function Create() {
 	</Container>
 	</div>
 	
-	<br />
+	{/*
 	<Container>
 		<Row className="justify-content-center">
 			<Col xs={10}>
-				<p style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
+				<p className="text-secondary" style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
 			</Col>
 		</Row>
 	</Container>
-		  
+	*/}
+
      <Container>
 	  <Form onSubmit={handleSubmit}>
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES</p>
 			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
+			 
+			 
+			 {/* Modal */}
+			 <p className="text-secondary" style={{cursor:"pointer"}} onClick={handleShowModal}>GO BACK</p>
+				{/*
+			    <span onClick={handleShowModal} className="d-flex align-items-center" style={{cursor:"pointer", color:"white"}}>
+				   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-clipboard" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/></svg>
+				</span>
+				*/}
+				
+               <Modal show={showModal} onHide={handleCloseModal}>
+                 <Modal.Body>
+					 really want to go back?
+				 </Modal.Body>
+                 <Modal.Footer>
+                   <Button onClick={handleClickGoBack} variant="secondary">GO BACK</Button>
+                 </Modal.Footer>
+               </Modal>
+			 
+			 
 			 
 			 {/* Information */}
                       <Form.Group className="mb-1">

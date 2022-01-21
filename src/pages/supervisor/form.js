@@ -69,22 +69,25 @@ function FormDetails() {
 	</Container>
 	</div>
 		  
-	<br />
+	
+	{/*
 	<Container>
 		<Row className="justify-content-center">
 			<Col xs={10}>
-				<p style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
+				<p className="text-secondary" style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
 			</Col>
 		</Row>
 	</Container>
-		  
+	*/}
+
      <Container>
 	   <Form onSubmit={handleSubmit}>	 
        <Row className="justify-content-center">
          <Col xs={10}>
-			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES INC</p>
+			 <p className="fw-bold mt-1 mb-0 text-center">TAGUM RESOURCES AGRI INDUSTRIES</p>
 			 <p className="fw-bold m-0 text-center">FRUIT CARE  EVALUATION</p>
 			 <br />
+			 <p className="text-secondary" style={{cursor:"pointer"}} onClick={handleClickGoBack}>GO BACK</p>
 			 
 			 
 			 {/* Information */}
