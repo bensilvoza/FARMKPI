@@ -6,6 +6,7 @@
     "axios": "^0.24.0",
     "baseui": "^10.7.1",
     "bootstrap": "^5.1.3",
+    "express": "^4.17.2",
     "pouchdb": "^7.2.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.0",
@@ -15,9 +16,8 @@
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.2"
   },
-  
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
