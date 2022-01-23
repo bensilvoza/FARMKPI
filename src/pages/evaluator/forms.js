@@ -178,18 +178,16 @@ function Forms() {
 			<div className="d-flex justify-content-between">
 			  <div> {navigator.onLine ? form["form"]["farm"] : form["farm"]} </div>
 		      <div> {navigator.onLine ? form["form"]["location"] : form["location"]} </div>
-			  {navigator.onLine &&
-				<div> {form["form"]["supervisorName"] !== "" ? form["form"]["supervisorName"] : "PENDING"} </div>
-			  }
-			  {navigator.onLine === false &&
-				<div>PENDING</div>
+			  {navigator.onLine
+				? <div> {form["form"]["supervisorName"] !== "" ? form["form"]["supervisorName"] : "PENDING"} </div>
+				: <div>PENDING</div>
 			  }
 			  
 		      <div className="d-flex align-items-center">
 				  {navigator.onLine ? form["form"]["status"] : form["status"] === "offline" &&
 				  <span style={{color:"red"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
 				  }
-				  {navigator.onLine ? form["form"]["farm"] : form["farm"] === "online" &&
+				  {navigator.onLine ? form["form"]["status"] : form["status"] === "online" &&
 				  <span style={{color:"green"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
 				  }
 			  </div>
