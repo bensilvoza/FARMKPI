@@ -31,6 +31,7 @@ function Forms() {
 			 // and now delete all docs from pouchDB
 			 // lastly update forms state
 			 if (navigator.onLine){
+				 console.log("running navigator online - codeCheking101")
 				 for (var i = 0; i < allFormsArray.length; i++){
 					  delete allFormsArray[i]["_id"]
 					  delete allFormsArray[i]["_rev"]
@@ -39,6 +40,7 @@ function Forms() {
 				 
 				 var sendOfflineForms = await axios.post("https://farmkpiback.herokuapp.com/evaluator", allFormsArray)   
 				 if (sendOfflineForms["data"] === "online"){
+					console.log("deleting pouchDB - codeCheking101")
 					 // delete pouchDB
 					 try {
                         await db.destroy();
@@ -54,7 +56,10 @@ function Forms() {
 					 return
 				 }
 			 }
-			 
+			  
+
+			 // if user is offline
+			 // run the code below
 			 allFormsArray.reverse()
 			 console.log("allFormsArray")
 			 console.log(allFormsArray)
