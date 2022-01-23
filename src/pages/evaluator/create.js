@@ -872,7 +872,7 @@ function Create() {
 		
 		try {
         await db.put({
-			_id:Math.floor( Math.random()*100000001 ),
+			_id:String( Math.floor(Math.random()*100000001) ),
 			farm:farm,
 			location:location,
 			date:date,
