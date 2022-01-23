@@ -22,7 +22,7 @@ console.log(form)
 		// if user is connected to the internet
 		// get the id and go to the database
 		if (navigator.onLine){
-			var getForm = await axios.get("https://farm-back.run-ap-south1.goorm.io/evaluator/" + formId)
+			var getForm = await axios.get("https://farmkpiback.herokuapp.com/evaluator/" + formId)
 			setForm(getForm["data"]["form"])
 			
 			// terminate

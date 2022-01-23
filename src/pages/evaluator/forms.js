@@ -37,7 +37,7 @@ function Forms() {
 					  allFormsArray[i]["status"] = "online"
 				 }
 				 
-				 var sendOfflineForms = await axios.post("https://farm-back.run-ap-south1.goorm.io/evaluator", allFormsArray)   
+				 var sendOfflineForms = await axios.post("https://farmkpiback.herokuapp.com/evaluator", allFormsArray)   
 				 if (sendOfflineForms["data"] === "online"){
 					 // delete pouchDB
 					 try {
@@ -47,7 +47,7 @@ function Forms() {
                      }
 					 
 					 // update forms state and return command
-					 var getAllForms = await axios.get("https://farm-back.run-ap-south1.goorm.io/evaluator")
+					 var getAllForms = await axios.get("https://farmkpiback.herokuapp.com/evaluator")
 					 setForms(getAllForms["data"])
 					 
 					 // terminate

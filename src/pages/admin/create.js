@@ -36,7 +36,7 @@ function Create() {
 		console.log(email)
 		
 		var data = {fname:fname, lname:lname, role:role.toLowerCase(), email:email}
-		var send = await axios.post('https://farm-back.run-ap-south1.goorm.io/register', data)
+		var send = await axios.post('https://farmkpiback.herokuapp.com/register', data)
 		
 		if (send["data"] === "Data Added"){
 			return window.location = "/admin"

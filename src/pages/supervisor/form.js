@@ -21,7 +21,7 @@ function FormDetails() {
 
 	useEffect(async function (){
 		// get all forms from mongoDB
-		var getForm = await axios.get("https://farm-back.run-ap-south1.goorm.io/supervisor/" + formId)   
+		var getForm = await axios.get("https://farmkpiback.herokuapp.com/supervisor/" + formId)   
 		setForm(getForm["data"]["form"])
 		
 	}, [])
@@ -29,7 +29,7 @@ function FormDetails() {
 	
 	useEffect(async function (){
 		// get all names of supervisor from mongoDB
-		var getUsers = await axios.get("https://farm-back.run-ap-south1.goorm.io/register")   
+		var getUsers = await axios.get("https://farmkpiback.herokuapp.com/register")   
 		var supervisorsArray = []
 		for (var i = 0; i < getUsers["data"].length; i++){
 			 if (getUsers["data"][i]["role"] === "supervisor"){
@@ -47,10 +47,10 @@ function FormDetails() {
 	
 	async function handleSubmit(e){
 		e.preventDefault()
-		var updateForm = await axios.post("https://farm-back.run-ap-south1.goorm.io/supervisor/updateSupervisorName/" + formId, {nameOfSupervisor:nameOfSupervisor})                  
+		var updateForm = await axios.post("https://farmkpiback.herokuapp.com/supervisor/updateSupervisorName/" + formId, {nameOfSupervisor:nameOfSupervisor})                  
 		
 		if (updateForm["data"] === "Supervisor name added"){
-			var getForm = await axios.get("https://farm-back.run-ap-south1.goorm.io/supervisor/" + formId)   
+			var getForm = await axios.get("https://farmkpiback.herokuapp.com/supervisor/" + formId)   
 		    setForm(getForm["data"]["form"])
 		}
 	}

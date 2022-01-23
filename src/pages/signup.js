@@ -36,7 +36,7 @@ function SignUp() {
 	}
 	
 	useEffect(async function (){
-		var getData = await axios.get("https://farm-back.run-ap-south1.goorm.io/register")
+		var getData = await axios.get("https://farmkpiback.herokuapp.com/register")
 		setGetUsers(getData["data"])
 	}, [])
 	
@@ -47,7 +47,7 @@ function SignUp() {
 		for (var i = 0; i < getUsers.length; i++){
 			 if (getUsers[i]["email"] === email){
 				 // update account
-				 var send = await axios.post("https://farm-back.run-ap-south1.goorm.io/register/update", {"_id":getUsers[i]["_id"], password:MD5(password)})   
+				 var send = await axios.post("https://farmkpiback.herokuapp.com/register/update", {"_id":getUsers[i]["_id"], password:MD5(password)})   
 				 if (send["data"] === "Registered"){
 					 return window.location = "/login"
 				 }

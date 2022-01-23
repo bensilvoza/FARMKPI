@@ -14,7 +14,7 @@ function Dashboard() {
 	var [users, setUsers] = useState([])
 	
 	useEffect(async function (){
-		var data = await axios.get("https://farm-back.run-ap-south1.goorm.io/register")
+		var data = await axios.get("https://farmkpiback.herokuapp.com/register")
 		setUsers(data)
 	}, [])
 	

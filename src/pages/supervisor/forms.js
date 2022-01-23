@@ -13,7 +13,7 @@ function Forms() {
 	
 	useEffect(async function (){
 		// get all forms from mongoDB
-		var getAllForms = await axios.get("https://farm-back.run-ap-south1.goorm.io/supervisor")
+		var getAllForms = await axios.get("http://localhost:5000/supervisor")
 		console.log(getAllForms)
 		setForms(getAllForms["data"])
 		
