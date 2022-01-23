@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Link} from "react-router-dom"
 import axios from "axios"
 import PouchDB from "pouchdb"
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 
 
 
@@ -183,14 +183,26 @@ function Forms() {
 				: <div>PENDING</div>
 			  }
 			  
-		      <div className="d-flex align-items-center">
-				  {navigator.onLine ? form["form"]["status"] : form["status"] === "offline" &&
+			  {navigator.onLine
+		      ? <div className="d-flex align-items-center">
+				  {form["form"]["status"] === "offline" &&
 				  <span style={{color:"red"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
 				  }
-				  {navigator.onLine ? form["form"]["status"] : form["status"] === "online" &&
+				  {form["form"]["status"] === "online" &&
 				  <span style={{color:"green"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
 				  }
 			  </div>
+
+			  : <div className="d-flex align-items-center">
+			     {form["status"] === "offline" &&
+			       <span style={{color:"red"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
+			     }
+			     {Form["status"] === "online" &&
+			     <span style={{color:"green"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/></svg></span>
+			     }
+		        </div>
+		     }
+
 			</div>
 		 </Col>
 		 )}
