@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MD5 from "../../helpers/MD5";
+import PouchDB from "pouchdb";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
-import PouchDB from "pouchdb";
-
-function Create() {
+function EditUser() {
   var [fname, setFname] = useState("");
   var [lname, setLname] = useState("");
   var [role, setRole] = useState("");
@@ -140,4 +139,4 @@ function Create() {
   );
 }
 
-export default Create;
+export default EditUser;
