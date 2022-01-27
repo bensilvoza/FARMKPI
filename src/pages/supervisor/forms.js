@@ -54,7 +54,7 @@ function Forms() {
         <br />
         <br />
 
-        <Row className="justify-content-center border rounded pt-2 pb-2 mb-1">
+        <Row className="justify-content-start border rounded pt-2 pb-2 mb-1">
           <Col xs={4}>
             <div className="fw-bold">Farm</div>
           </Col>
@@ -70,7 +70,7 @@ function Forms() {
         {forms.map((form) => (
           <Row
             key={form["form"]["_id"]}
-            className="justify-content-center border rounded pt-2 pb-2 mb-1"
+            className="justify-content-start border rounded pt-2 pb-2 mb-1"
             onClick={function() {
               return handleClickForm(form["_id"]);
             }}
