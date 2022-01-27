@@ -197,13 +197,11 @@ function Forms() {
           </Col>
         </Row>
 
-        <Row className="justify-content-start border rounded p-2 mb-2">
+        <Row className="justify-content-center border rounded p-2 mb-2">
           <Col className="fw-bold" xs={3}>
             Farm
           </Col>
-          <Col className="fw-bold" xs={3}>
-            Location
-          </Col>
+
           <Col className="fw-bold" xs={4}>
             Conformed
           </Col>
@@ -215,7 +213,7 @@ function Forms() {
         {forms.map((form) => (
           <Row
             key={form["_id"]}
-            className="justify-content-start border rounded p-2 mb-2"
+            className="justify-content-center border rounded p-2 mb-2"
             onClick={function() {
               return handleClick(form["_id"]);
             }}
@@ -225,11 +223,7 @@ function Forms() {
                 {navigator.onLine ? form["form"]["farm"] : form["farm"]}{" "}
               </div>
             </Col>
-            <Col xs={3}>
-              <div>
-                {navigator.onLine ? form["form"]["location"] : form["location"]}{" "}
-              </div>
-            </Col>
+
             <Col xs={4}>
               {navigator.onLine ? (
                 <div>

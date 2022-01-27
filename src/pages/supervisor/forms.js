@@ -58,9 +58,7 @@ function Forms() {
           <Col xs={2}>
             <div className="fw-bold">Farm</div>
           </Col>
-          <Col xs={2}>
-            <div className="fw-bold">Location</div>
-          </Col>
+
           <Col xs={5}>
             <div className="fw-bold">Date</div>
           </Col>
@@ -80,9 +78,7 @@ function Forms() {
             <Col xs={2}>
               <div> {form["form"]["farm"]} </div>
             </Col>
-            <Col xs={2}>
-              <div> {form["form"]["location"]} </div>
-            </Col>
+
             <Col xs={5}>
               <div> {form["form"]["date"]} </div>
             </Col>
