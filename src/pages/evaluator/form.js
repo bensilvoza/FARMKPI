@@ -46,6 +46,10 @@ function FormDetails() {
     return (window.location = "/evaluator");
   }
 
+  function handleFormEdit(address) {
+    return (window.location = "/evaluator/edit/" + address);
+  }
+
   return (
     <div>
       <div className="bg-secondary">
@@ -77,13 +81,27 @@ function FormDetails() {
             <p className="fw-bold m-0 text-center">FRUIT CARE EVALUATION</p>
             <br />
 
-            <p
-              className="text-secondary"
-              style={{ cursor: "pointer" }}
-              onClick={handleClickGoBack}
-            >
-              GO BACK
-            </p>
+            <div className="d-flex justify-content-between">
+              <p
+                className="text-secondary"
+                style={{ cursor: "pointer" }}
+                onClick={handleClickGoBack}
+              >
+                GO BACK
+              </p>
+
+              {form["supervisorName"] === "" && (
+                <p
+                  className="text-secondary"
+                  style={{ cursor: "pointer" }}
+                  onClick={function() {
+                    return handleFormEdit(formId);
+                  }}
+                >
+                  EDIT
+                </p>
+              )}
+            </div>
 
             {/* Information */}
             <Form.Group className="mb-1">

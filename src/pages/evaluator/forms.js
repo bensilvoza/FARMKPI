@@ -195,114 +195,120 @@ function Forms() {
               <span className="ms-2 fs-4">Create Form</span>
             </div>
           </Col>
+        </Row>
 
-          <Col xs={10} className="border border-secondary rounded p-2 mb-1">
-            <div className="d-flex justify-content-between">
-              <div> Farm </div>
-              <div> Location </div>
-              <div> Conformed </div>
-              <div> Status</div>
-            </div>
+        <Row className="justify-content-center border rounded p-2 mb-2">
+          <Col className="fw-bold" xs={3}>
+            Farm
           </Col>
-          {forms.map((form) => (
-            <Col
-              key={form["_id"]}
-              xs={10}
-              className="border border-secondary rounded p-2 mb-1"
-              style={{ cursor: "pointer" }}
-              onClick={function() {
-                return handleClick(form["_id"]);
-              }}
-            >
-              <div className="d-flex justify-content-between">
-                <div>
-                  {" "}
-                  {navigator.onLine ? form["form"]["farm"] : form["farm"]}{" "}
-                </div>
-                <div>
-                  {" "}
-                  {navigator.onLine
-                    ? form["form"]["location"]
-                    : form["location"]}{" "}
-                </div>
-                {navigator.onLine ? (
-                  <div>
-                    {" "}
-                    {form["form"]["supervisorName"] !== ""
-                      ? form["form"]["supervisorName"]
-                      : "PENDING"}{" "}
-                  </div>
-                ) : (
-                  <div>PENDING</div>
-                )}
+          <Col className="fw-bold" xs={3}>
+            Location
+          </Col>
+          <Col className="fw-bold" xs={4}>
+            Conformed
+          </Col>
+          <Col className="fw-bold" xs={1}>
+            Status
+          </Col>
+        </Row>
 
-                {navigator.onLine ? (
-                  <div className="d-flex align-items-center">
-                    {form["form"]["status"] === "offline" && (
-                      <span style={{ color: "red" }}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-circle"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        </svg>
-                      </span>
-                    )}
-                    {form["form"]["status"] === "online" && (
-                      <span style={{ color: "green" }}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-circle"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        </svg>
-                      </span>
-                    )}
-                  </div>
-                ) : (
-                  <div className="d-flex align-items-center">
-                    {form["status"] === "offline" && (
-                      <span style={{ color: "red" }}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-circle"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        </svg>
-                      </span>
-                    )}
-                    {Form["status"] === "online" && (
-                      <span style={{ color: "green" }}>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          fill="currentColor"
-                          className="bi bi-circle"
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        </svg>
-                      </span>
-                    )}
-                  </div>
-                )}
+        {forms.map((form) => (
+          <Row
+            key={form["_id"]}
+            className="justify-content-center border rounded p-2 mb-2"
+            onClick={function() {
+              return handleClick(form["_id"]);
+            }}
+          >
+            <Col xs={3}>
+              <div>
+                {navigator.onLine ? form["form"]["farm"] : form["farm"]}{" "}
               </div>
             </Col>
-          ))}
-        </Row>
+            <Col xs={3}>
+              <div>
+                {navigator.onLine ? form["form"]["location"] : form["location"]}{" "}
+              </div>
+            </Col>
+            <Col xs={4}>
+              {navigator.onLine ? (
+                <div>
+                  {" "}
+                  {form["form"]["supervisorName"] !== ""
+                    ? form["form"]["supervisorName"]
+                    : "PENDING"}{" "}
+                </div>
+              ) : (
+                <div>PENDING</div>
+              )}
+            </Col>
+            <Col xs={1}>
+              {navigator.onLine ? (
+                <div className="d-flex align-items-center">
+                  {form["form"]["status"] === "offline" && (
+                    <span style={{ color: "red" }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-circle"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      </svg>
+                    </span>
+                  )}
+                  {form["form"]["status"] === "online" && (
+                    <span style={{ color: "green" }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-circle"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      </svg>
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <div className="d-flex align-items-center">
+                  {form["status"] === "offline" && (
+                    <span style={{ color: "red" }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-circle"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      </svg>
+                    </span>
+                  )}
+                  {Form["status"] === "online" && (
+                    <span style={{ color: "green" }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-circle"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      </svg>
+                    </span>
+                  )}
+                </div>
+              )}
+            </Col>
+          </Row>
+        ))}
       </Container>
     </div>
   );

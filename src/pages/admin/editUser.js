@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import MD5 from "../../helpers/MD5";
 import PouchDB from "pouchdb";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 function EditUser() {
+  var { userId } = useParams();
+  var [user, setUser] = useState({});
   var [fname, setFname] = useState("");
   var [lname, setLname] = useState("");
   var [role, setRole] = useState("");
@@ -24,12 +25,12 @@ function EditUser() {
     setEmail(e.target.value);
   }
 
+  function handleGoBackClick() {
+    return (window.location = "/admin");
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(fname);
-    console.log(lname);
-    console.log(role);
-    console.log(email);
 
     var data = {
       fname: fname,
@@ -38,18 +39,31 @@ function EditUser() {
       email: email,
     };
     var send = await axios.post(
-      "https://farmkpiback.herokuapp.com/register",
+      "https://farmkpiback.herokuapp.com/register/edit/" + user["_id"],
       data
     );
 
-    if (send["data"] === "Data Added") {
+    if (send["data"] === "Updated") {
       return (window.location = "/admin");
     }
   }
 
-  function handleGoBackClick() {
-    return (window.location = "/admin");
-  }
+  useEffect(async function() {
+    var getUser = await axios.get(
+      "https://farmkpiback.herokuapp.com/register/" + userId
+    );
+    setUser(getUser["data"]);
+  }, []);
+
+  useEffect(
+    async function() {
+      setFname(user["fname"]);
+      setLname(user["lname"]);
+      setRole(user["role"]);
+      setEmail(user["email"]);
+    },
+    [user]
+  );
 
   return (
     <div>
@@ -128,7 +142,7 @@ function EditUser() {
 
               <div className="d-grid gap-2">
                 <Button variant="dark" type="submit">
-                  SUBMIT
+                  UPDATE
                 </Button>
               </div>
             </Form>

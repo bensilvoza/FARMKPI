@@ -18,7 +18,7 @@ function Dashboard() {
   }
 
   function handleCurrentDivId(id) {
-    return (window.location = "/user/" + id);
+    return (window.location = "/admin/" + id);
   }
 
   useEffect(async function() {
