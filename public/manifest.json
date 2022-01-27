@@ -3,29 +3,29 @@
   "name": "Fruit Care Evaluation",
   "icons": [
     {
-      "src": "16.png",
+      "src": "/img/icons/16.png",
       "sizes": "16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "32.png",
+      "src": "/img/icons/32.png",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "64.png",
+      "src": "/img/icons/64.png",
       "sizes": "64x64",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "144.png",
+      "src": "/img/icons/144.png",
       "sizes": "144x144",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "512.png",
+      "src": "/img/icons/512.png",
       "sizes": "512x512",
-      "type": "image/x-icon"
+      "type": "image/png"
     }
   ],
   "start_url": ".",
