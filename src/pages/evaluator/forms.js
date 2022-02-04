@@ -52,7 +52,7 @@ function Forms() {
             var getAllForms = await axios.get(
               "https://farmkpiback.herokuapp.com/evaluator"
             );
-            setForms(getAllForms["data"]);
+            setForms(getAllForms["data"].reverse());
 
             // terminate
             return;
@@ -63,7 +63,7 @@ function Forms() {
         var getAllForms = await axios.get(
           "https://farmkpiback.herokuapp.com/evaluator"
         );
-        setForms(getAllForms["data"]);
+        setForms(getAllForms["data"].reverse());
 
         // terminate
         return;
@@ -72,12 +72,7 @@ function Forms() {
       // if user is offline
       // run the code below
       allFormsArray.reverse();
-      console.log("allFormsArray");
-      console.log(allFormsArray);
-      // add callback to prevent delay
-      setForms(function() {
-        return allFormsArray;
-      });
+      setForms(allFormsArray);
     } catch (err) {
       console.log(err);
       console.log("all forms: error");
@@ -172,7 +167,7 @@ function Forms() {
 
         <br />
         <br />
-        <Row className="justify-content-center">
+        <Row className="justify-content-start ps-3">
           <Col xs={10} className="p-0 mb-2">
             <div
               onClick={handleClickCreateForm}
@@ -201,10 +196,8 @@ function Forms() {
           <Col className="fw-bold" xs={3}>
             Farm
           </Col>
-          <Col className="fw-bold" xs={3}>
-            Location
-          </Col>
-          <Col className="fw-bold" xs={4}>
+
+          <Col className="fw-bold" xs={5}>
             Conformed
           </Col>
           <Col className="fw-bold" xs={1}>
@@ -225,12 +218,8 @@ function Forms() {
                 {navigator.onLine ? form["form"]["farm"] : form["farm"]}{" "}
               </div>
             </Col>
-            <Col xs={3}>
-              <div>
-                {navigator.onLine ? form["form"]["location"] : form["location"]}{" "}
-              </div>
-            </Col>
-            <Col xs={4}>
+
+            <Col xs={5}>
               {navigator.onLine ? (
                 <div>
                   {" "}

@@ -12,7 +12,7 @@ function Forms() {
       "https://farmkpiback.herokuapp.com/supervisor"
     );
     console.log(getAllForms);
-    setForms(getAllForms["data"]);
+    setForms(getAllForms["data"].reverse());
   }, []);
 
   function handleClickForm(formId) {
@@ -55,7 +55,7 @@ function Forms() {
         <br />
 
         <Row className="justify-content-start border rounded pt-2 pb-2 mb-1">
-          <Col xs={4}>
+          <Col xs={3}>
             <div className="fw-bold">Farm</div>
           </Col>
 
@@ -75,7 +75,7 @@ function Forms() {
               return handleClickForm(form["_id"]);
             }}
           >
-            <Col xs={4}>
+            <Col xs={3}>
               <div> {form["form"]["farm"]} </div>
             </Col>
 
